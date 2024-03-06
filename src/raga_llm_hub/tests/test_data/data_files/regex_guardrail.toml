@@ -1,0 +1,4 @@
+[1]
+prompt="04234 three four five regex: z39430"
+patterns='''[r"Three [a-z]+ five", r"regex: [a-z]+[0-9]+"]'''
+expected_result=""

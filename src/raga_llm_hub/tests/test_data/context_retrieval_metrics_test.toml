@@ -1,0 +1,50 @@
+[1]
+context = ["London, the capital of England and the United Kingdom",
+          "As one of the world's major global cities,[16] London exerts a strong influence on world art, entertainment, fashion, commerce and finance, education, health care, media, science and technology, tourism, transport, and communications",
+          "The French Revolution was a period of political and societal change in France that began with the Estates General of 1789, and ended with the coup of 18 Brumaire in November 1799 and the formation of the French Consulate"]
+expected_response = ["London, the capital of England and the United Kingdom",
+                    "The City of London, its ancient core and financial centre, was founded by the Romans as Londinium and retains its medieval boundaries",
+                    "As one of the world's major global cities,[16] London exerts a strong influence on world art, entertainment, fashion, commerce and finance, education, health care, media, science and technology, tourism, transport, and communications",
+                     "The 2023 population of Greater London of just under 10 million[27] made it Europe's third-most populous city" ]
+
+[2]
+[1]
+context = ["London, the capital of England and the United Kingdom",
+          "Artificial intelligence (AI) is the intelligence of machines or software, as opposed to the intelligence of living beings, primarily of humans",
+          "Some high-profile applications are: advanced web search engines (e.g., Google Search), recommendation systems (used by YouTube, Amazon, and Netflix), interacting via human speech (such as Google Assistant, Siri, and Alexa), self-driving cars (e.g., Waymo), generative and creative tools (ChatGPT and AI art), and superhuman play and analysis in strategy games (such as chess and Go)."]
+expected_response = ["Artificial intelligence (AI) is the intelligence of machines or software, as opposed to the intelligence of living beings, primarily of humans",
+                    "It is a field of study in computer science that develops and studies intelligent machines. Such machines may be called AIs.",
+                    "Some high-profile applications are: advanced web search engines (e.g., Google Search), recommendation systems (used by YouTube, Amazon, and Netflix), interacting via human speech (such as Google Assistant, Siri, and Alexa), self-driving cars (e.g., Waymo), generative and creative tools (ChatGPT and AI art), and superhuman play and analysis in strategy games (such as chess and Go).",
+                     "The growing use of artificial intelligence in the 21st century is influencing a societal and economic shift towards increased automation, data-driven decision-making, and the integration of AI systems into various economic sectors and areas of life,",
+                     "The traditional goals of AI research include reasoning, knowledge representation, planning, learning, natural language processing, perception, and support for robotics."]
+
+
+[3]
+context = ["Classical physics cannot explain the operation of these quantum devices, and a scalable quantum computer could perform some calculations exponentially faster (with respect to input size scaling)[2] than any modern "classical" computer.",
+          "As one of the world's major global cities,[16] London exerts a strong influence on world art, entertainment, fashion, commerce and finance, education, health care, media, science and technology, tourism, transport, and communications",
+          "A quantum computer is a computer that takes advantage of quantum mechanical phenomena",
+          "In principle, a non-quantum (classical) computer can solve the same computational problems as a quantum computer, given enough time"
+          ]
+expected_response = ["A quantum computer is a computer that takes advantage of quantum mechanical phenomena",
+                    "The basic unit of information in quantum computing is the qubit, similar to the bit in traditional digital electronics",
+                    "The design of quantum algorithms involves creating procedures that allow a quantum computer to perform calculations efficiently and quickly.",
+                     ]
+
+[4]
+context = ["Evolution is the change in the heritable characteristics of biological populations over successive generations",
+                    "The theory of evolution by natural selection was conceived independently by Charles Darwin and Alfred Russel Wallace in the mid-19th century as an explanation for why organisms are adapted to their physical and biological environments.",
+                    "Evolution by natural selection is established by observable facts about living organisms:",
+          ]
+expected_response = ["Evolution is the change in the heritable characteristics of biological populations over successive generations",
+                    "The theory of evolution by natural selection was conceived independently by Charles Darwin and Alfred Russel Wallace in the mid-19th century as an explanation for why organisms are adapted to their physical and biological environments.",
+                    "Evolution by natural selection is established by observable facts about living organisms:",
+                     ]
+[5]
+context = ["Insects are mostly solitary, but some, such as bees, ants and termites, are social and live in large, well-organized colonies.",
+                    "Metamorphosis is a biological process by which an animal physically develops including birth transformation or hatching, involving a conspicuous and relatively abrupt change in the animal's body structure through cell growth and differentiation.",
+                    "Generally organisms with a larval stage undergo metamorphosis, and during metamorphosis the organism loses larval characteristics.",
+          ]
+expected_response = ["Metamorphosis is a biological process by which an animal physically develops including birth transformation or hatching, involving a conspicuous and relatively abrupt change in the animal's body structure through cell growth and differentiation.",
+                    "Generally organisms with a larval stage undergo metamorphosis, and during metamorphosis the organism loses larval characteristics.",
+                    "In insects, growth and metamorphosis are controlled by hormones synthesized by endocrine glands near the front of the body ",
+                     ]

@@ -1,0 +1,19 @@
+[1]
+response = "I absolutely loved the product! It exceeded my expectations."
+expected_result = "high positive sentiment score."
+
+[2]
+response = "The service was terrible, and the product did not work as advertised."
+expected_result = "high negative sentiment score."
+
+[3]
+response = "he weather today is neither too good nor too bad."
+expected_result = "sentiment score close to neutral, indicating neither positive nor negative sentiment."
+
+[4]
+response = "The initial setup was frustrating, but once it was done, the performance was outstanding."
+expected_result = "mix of positive and negative sentiments, with the overall sentiment score indicating the dominant sentiment."
+
+[5]
+response = "Oh great, another problem to solve. Just what I needed."
+expected_result = "high negative sentiment score, capturing the sarcasm in the response."

@@ -1,0 +1,19 @@
+[1]
+prompt= "This is a test string with a \u200b zero width space"
+expected_result= "This is a test string with a zero width space"
+
+[2]
+prompt="Here is a message with some invisible characters: "Hello\u200bWorld".
+expected_result="Here is a message with some invisible characters: "HelloWorld"."
+
+[3]
+prompt="I'm looking for information on the latest software updates. Can you assist?"
+expected_result="I'm looking for information on the latest software updates. Can you assist?"
+
+[4]
+prompt="This sentence contains invisible characters: "Testing\u209dsfj0c123"."
+expected_result="This sentence contains invisible characters: "Testing123"."
+
+[5]
+prompt="Check out this link: 'https://example.com\u20ghjk0f'."
+expected_result="Check out this link: 'https://example.com'."

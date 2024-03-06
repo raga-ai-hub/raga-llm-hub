@@ -1,0 +1,29 @@
+[1]
+prompt = "What is the capital of France?"
+response = "The capital of France is Paris"
+context = ""
+expected_result = "The test should return a high relevancy score since the response directly answers the question with the correct information. No additional context or model specification is needed."
+
+[2]
+prompt = "Who is the current CEO of Tesla?"
+response = "As of 2023, the CEO of Tesla is Elon Musk."
+context = "As of 2023"
+expected_result = "Assuming the response aligns with the current year mentioned in the context, the relevancy score should be high. If the context or response were outdated, the relevancy score should reflect this discrepancy."
+
+[3]
+prompt = "Explain how photosynthesis works and why it's important for the environment."
+response = "Photosynthesis is a process used by plants to convert light energy into chemical energy, which is later released to fuel the plant's activities. It's important for the environment because it produces oxygen as a byproduct and helps reduce carbon dioxide levels, combating climate change."
+context = "Basic biological process"
+expected_result = "The relevancy score should be high because the response comprehensively addresses both parts of the question within the given context. If the response only covered one aspect, the score should be lower."
+
+[4]
+prompt = "How does quantum computing work?"
+response = "Quantum computing involves cooking techniques that use high pressure and temperatures to prepare food quickly."
+context = "Technology and computing."
+expected_result = "The response is entirely irrelevant to the prompt, showing a misunderstanding or misinterpretation. The relevancy score should be very low, and the reason provided should indicate the response's irrelevance to the expected domain of discussion."
+
+[5]
+prompt = "Tell me about Jupiter."
+response = "Could you clarify if you're interested in information about the planet Jupiter or Jupiter, the Roman god?"
+context = ""
+expected_result = "Even though the response does not directly answer the question, it is still relevant because it seeks clarification on an ambiguous prompt. The test should account for this by providing a relevancy score that reflects the response's appropriateness, potentially with a reason explaining the need for clarification."

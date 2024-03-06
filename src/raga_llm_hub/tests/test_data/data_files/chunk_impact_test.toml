@@ -1,0 +1,40 @@
+[1]
+response = "The capital of France is Paris."
+context = [
+    ["Geography quiz."],
+    ["French history lesson."],
+    ["Travel guide for Paris."],
+    ["Conversation about European capitals."],
+]
+
+[2]
+response = "The Eiffel Tower is an iconic landmark."
+context = [
+    ["Artificial intelligence concept"],
+    ["Thriller movie discussion"],
+]
+
+[3]
+response = "Photosynthesis is the process by which plants convert light into energy."
+context = [
+    ["Biology class discussion."],
+    ["Botany lecture on plant processes."],
+    ["Nature documentary on plant life."],
+    ["Science experiment on photosynthesis."],
+]
+
+[4]
+response = "The sky appears blue due to Rayleigh scattering."
+context = [
+    ["Software development interview."],
+    ["Biology class discussion."],
+]
+
+[5]
+response = "Java, Python, C++."
+context = [
+    ["Programming languages discussion."],
+    ["Software development interview."],
+    ["Coding boot camp curriculum."],
+    ["Comparison of programming languages."],
+]

@@ -1,0 +1,29 @@
+[1]
+prompt = "What is the capital of France?"
+response = "The capital of France is Berlin."
+context = "Previous conversation context about geography."
+expected_result = "The hallucination score should be high, as the model has provided a factually incorrect response."
+
+[2]
+prompt = "Describe a day in the life of a talking cat."
+response = "The talking cat wakes up, puts on a tiny suit, and commutes to a cat-sized office in a mouse-driven car."
+context = "General conversation about animals."
+expected_result = "The hallucination score might be moderate, as the response is creative and diverges from typical cat behavior but doesn't necessarily hallucinate facts."
+
+[3]
+prompt = "Explain the process of photosynthesis."
+response = "Photosynthesis is the method by which plants produce light using solar energy."
+context = "Previous conversation about biology and plant science."
+expected_result = "The hallucination score should be high, as the response demonstrates a fundamental misinterpretation of the process of photosynthesis."
+
+[4]
+prompt = "What is the capital of Japan?"
+response = "The capital of Japan is Tokyo."
+context = "Repetition of the same question within the conversation."
+expected_result = "The hallucination score should be low, as the response is accurate and directly related to the prompt."
+
+[5]
+prompt = "Who is the current President of the United States?"
+response = "The current President of the United States is John Smith."
+context = "User mistakenly mentioned 'John Smith' instead of the actual president."
+expected_result = "The hallucination score might be moderate, as the response incorporates the user's mistake but still provides a hallucinated answer."

@@ -1,0 +1,24 @@
+[1]
+response = "The quick brown fox jumps over the lazy dog."
+concept_set = ["quick_V", "brown_A", "fox_N", "lazy_A", "dog_N"]
+expected_result = "A dictionary with a ratio of 1.0 indicating that all concepts are covered."
+
+[2]
+response = "A cat is sleeping on the windowsill."
+concept_set = ["cat_N", "sleep_V", "windowsill_N"]
+expected_result = "A dictionary with a ratio of 1.0, indicating that some concepts are covered but not all."
+
+[3]
+response = "The sky is blue and the sun is shining."
+concept_set = ["cloud_N", "rain_N", "umbrella_N"]
+expected_result = "A dictionary with a ratio of 0.0, indicating that none of the concepts are covered."
+
+[4]
+response = ["A red apple", "A green tree", "A yellow banana"]
+concept_set = ["red_A", "green_A", "yellow_A"]
+expected_result = "A dictionary with a ratio of 1.0, indicating that all concepts are covered on average across the responses."
+
+[5]
+response = ["The sun is shining", "Birds are chirping", "Grass is green"]
+concept_set = ["sun_N", "bird_N", "cloud_N", "green_A"]
+expected_result = "A dictionary with a ratio less than 1.0, indicating that some concepts are covered on average across the responses."

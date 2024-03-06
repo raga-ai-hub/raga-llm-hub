@@ -1,0 +1,24 @@
+[1]
+prompt="I need help with my Microsoft Office installation. Can you guide me through the steps?"
+substrings=["Microsoft Office"]
+expected_result="The output should not contain the banned substring mentioned"
+
+[2]
+prompt="I'm thinking of getting an iPhone as my next phone. Can you tell me about its features?"
+substrings=["iPhone"]
+expected_result="The output should not contain the banned substring mentioned"
+
+[3]
+prompt="I'm looking for a new streaming service. Can you compare Netflix and Hulu?"
+substrings=["Netflix", "Hulu"]
+expected_result="The output should not contain the banned substring mentioned"
+
+[4]
+prompt="I want to learn more about streaming options for movies and TV shows. Can you provide recommendations?"
+substrings=["Apple"]
+expected_result="The output should not contain the banned substring mentioned"
+
+[5]
+prompt="I'm considering a new laptop. Can you tell me about the latest MacBook Pro models?"
+substrings=["MacBook Pro"]
+expected_result="The output should not contain the banned substring mentioned"

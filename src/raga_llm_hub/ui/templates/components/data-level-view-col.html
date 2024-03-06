@@ -1,0 +1,6 @@
+<tr class="table-heading"> 
+  {% for col in cols %}
+    <!-- <th>{{col}}</th> -->
+    <th{% if col == 'Id' or col == 'Trace' or col == 'Input' or col == 'Output'  %} class="fixed-side"{% endif %}>{{ col }}</th>
+  {% endfor %}
+</tr>

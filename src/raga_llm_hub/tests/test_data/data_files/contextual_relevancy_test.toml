@@ -1,0 +1,29 @@
+[1]
+prompt = "Tell me about the benefits of exercise."
+response = "Exercise helps improve cardiovascular health, strength, and overall well-being."
+context = "The user is interested in learning about the positive effects of physical activity."
+expected_result = ["The relevancy score should be high, as the response directly addresses the prompt within the given context","Include the reason in the output dictionary, indicating that the response aligns well with the user's interest in the benefits of exercise."]
+
+[2]
+prompt = "What is the capital of France?"
+response = "Paris is the capital of France."
+context = "The user is asking a geography-related question."
+expected_result = ["The relevancy score should be high, as the response directly answers the geography-related prompt within the given context.","Include the reason in the output dictionary, indicating that the response is relevant to the user's question about the capital of France."]
+
+[3]
+prompt = "Explain the process of photosynthesis."
+response = "The Industrial Revolution had a significant impact on society in the 18th century."
+context = "The user is seeking information about the process of photosynthesis."
+expected_result = ["The relevancy score should be low, as the response does not address the prompt about photosynthesis within the given context.","Include the reason in the output dictionary, indicating that the response is not relevant to the user's inquiry about photosynthesis."]
+
+[4]
+prompt = "Recommend a good book on artificial intelligence."
+response = "I enjoy reading science fiction novels in my free time."
+context = "The user is looking for a book recommendation related to artificial intelligence."
+expected_result = ["The relevancy score should be low, as the response does not provide a suitable book recommendation for artificial intelligence within the given context.","Include the reason in the output dictionary, indicating that the response is not aligned with the user's request for a book on artificial intelligence."]
+
+[5]
+prompt = "What are the main causes of climate change?"
+response = "Climate change is a global issue that affects everyone."
+context = "The user is interested in understanding the primary factors contributing to climate change."
+expected_result = ["The relevancy score should be moderate, as the response acknowledges the global nature of climate change but doesn't specifically address the main causes within the given context.","Include the reason in the output dictionary, indicating that the response has some relevance to the user's interest in climate change causes but lacks specificity."]

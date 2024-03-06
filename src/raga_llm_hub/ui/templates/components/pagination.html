@@ -1,0 +1,45 @@
+{% macro render_pagination(current_page, total_pages, window_size=2) %}
+  <div class="raga-paginator">
+    {% if current_page > 0 %}
+      <a
+        aria-label="Previous Page"
+        type="button"
+        class="p-paginator-prev p-paginator-element"
+        href="?page={{ current_page - 1 }}"
+      >
+        <span class="p-button-icon p-c p-paginator-icon bi bi-chevron-left"></span>
+      </a>
+    {% endif %}
+  
+    {% set start_page = max(0, current_page - window_size) %}
+    {% set end_page = min(total_pages - 1, current_page + window_size) %}
+
+    {% if start_page > 0 %}
+      <span class="p-paginator-dots">...</span>
+    {% endif %}
+    {# Render Page Numbers within the window #}
+    {% for page in range(start_page, end_page + 1) %}
+      <a type="button" class="p-paginator-element {% if page == current_page %}p-highlight{% endif %}" href="?page={{ page }}">
+        {{ page + 1 }} {# Adjusting page number for starting from 0 #}
+      </a>
+    {% endfor %}
+    
+    {% if end_page < total_pages - 1 %}
+      <span class="p-paginator-dots">...</span>
+    {% endif %}
+
+    {% if current_page < total_pages - 1 %}
+      <a
+        aria-label="Next Page"
+        type="button"
+        class="p-paginator-next p-paginator-element"
+        href="?page={{ current_page + 1 }}"
+      >
+        <span class="p-button-icon p-c p-paginator-icon bi bi-chevron-right"></span>
+      </a>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{# Example usage #}
+{{ render_pagination(current_page=current_page, total_pages=total_pages) }}

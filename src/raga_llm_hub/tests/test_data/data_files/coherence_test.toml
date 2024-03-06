@@ -1,0 +1,29 @@
+[1]
+prompt = "Write a paragraph about the benefits of regular exercise"
+response = "Regular exercise has numerous advantages for overall health and well-being."
+expected_response = "High coherence score, as the response aligns with the given prompt and incorporates relevant information from the context"
+expected_result = "The coherence score should be high, indicating that the response effectively builds upon the given prompt and creates a coherent narrative."
+
+[2]
+prompt = "Describe the process of photosynthesis."
+response = "Photosynthesis is the process where plants convert sunlight into energy. Elephants are the largest land animals and have a complex social structure."
+expected_response = "The coherence score should be low, as the response deviates from the given prompt, introducing irrelevant information."
+expected_result = "The coherence score should be low, as the response deviates from the given prompt, introducing irrelevant information."
+
+[3]
+prompt = "Discuss the impact of climate change on polar bear populations."
+response = "Polar bears are facing a significant threat due to the melting of Arctic ice. This has led to a decline in their hunting grounds, making it difficult for them to find food and survive."
+expected_response = "The coherence score should be high, as the response aligns with the given prompt and also integrates well with the provided context."
+expected_result = "The coherence score should be high, as the response aligns with the given prompt and also integrates well with the provided context."
+
+[4]
+prompt = "Explain the principles of quantum mechanics."
+response = "Quantum mechanics involves the study of subatomic particles and their behavior. In the culinary world, precision and accuracy are essential for creating a perfect dish."
+expected_response = "The coherence score should be low, as the response introduces an unrelated context and fails to address the physics conference context."
+expected_result = "The coherence score should be low, as the response introduces an unrelated context and fails to address the physics conference context."
+
+[5]
+prompt = "Discuss the concept of time."
+response = "Time is a mysterious entity that has intrigued philosophers and scientists throughout history. It influences our perceptions, yet its true nature remains elusive."
+expected_response = "The coherence score should be moderate, as the response addresses the concept of time but may vary based on the specific expectations for discussing this broad topic."
+expected_result = "The coherence score should be moderate, as the response addresses the concept of time but may vary based on the specific expectations for discussing this broad topic."

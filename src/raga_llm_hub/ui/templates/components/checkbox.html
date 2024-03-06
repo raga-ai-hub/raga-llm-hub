@@ -1,0 +1,21 @@
+<div class="form-check card-check form-check-reverse">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    checked
+    value=""
+    id="flexCheckDefault-{{test_run_id}}"
+    data-target="{{test_run_id}}"
+  />
+  <label class="form-check-label" for="flexCheckDefault-{{test_run_id}}">
+    {{get_test_name_for_test_run_id(tests, test_run_id)}}
+    {% set test = get_test_for_test_run_id(tests, test_run_id) %}
+    <i
+      class="bi bi-info-circle tooltip-icon"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      data-bs-html="true"
+      title='{% include "components/tooltip.html"%}'
+    ></i>
+  </label>
+</div>

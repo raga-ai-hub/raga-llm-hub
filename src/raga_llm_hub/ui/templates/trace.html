@@ -1,0 +1,176 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid p-5 min-vh-100">
+  <div class="row">
+    <div class="col-12">
+      <a class="back-btn" href="javascript:history.back()">
+        <i class="bi bi-chevron-left"></i> Go Back
+      </a>
+      <h1 class="mb-0 mt-2">Trace Details</h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <div class="raga-card">
+        <div class="p-3">
+          <div class="row">
+            <div class="col-auto" style="min-width: 9.375rem">
+              <p class="mb-0 mt-1">Id</p>
+            </div>
+            <div class="col">{{result.get('data_point_id') or '--'}}</div>
+          </div>
+          <div class="row">
+            <div class="col-auto" style="min-width: 9.375rem">
+              <p class="mb-0 mt-1">Metrics</p>
+            </div>
+            <div class="col">
+              {% for test in tests %}
+              <div class="card-badge">
+                <div class="listItem">
+                  <span>{{test.get('test_name')}}</span><span>{{test.get('score')}}</span>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SideBar -->
+    <div class="col-lg-3">
+      <div class="raga-card shadow card-hover my-3">
+        <div id="accordian">
+          <ul class="show-dropdown">
+            <!-- <li class="active">
+              <a href="javascript:void(0);">
+                QA Chatbot <span class="badge-red">TRACE</span>
+              </a>
+              <ul class="show-dropdown">
+                <li>
+                  <a href="javascript:void(0);"
+                    >Lorem <span class="badge-blue">SPAN</span></a
+                  >
+                  <ul class="show-dropdown">
+                    <li>
+                      <a href="javascript:void(0);"
+                        >Prompt Embedding
+                        <span class="badge-blue">SPAN</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);"
+                        >Vector Store Embedding
+                        <span class="badge-blue">SPAN</span></a
+                      >
+                      <ul>
+                        <li><a href="javascript:void(0);">1</a></li>
+                        <li><a href="javascript:void(0);">1</a></li>
+                        <li><a href="javascript:void(0);">1</a></li>
+                        <li><a href="javascript:void(0);">1</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);"
+                        >Context Embedding
+                        <span class="badge-blue">SPAN</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);"
+                        >Context Encoding Trace
+                        <span class="badge-blue">SPAN</span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li> -->
+            <li>
+              <a href="javascript:void(0);">
+                Generation
+                <span class="badge-red">TRACE</span>
+              </a>
+              <ul>
+                <li><a href="javascript:void(0);">1</a></li>
+                <li><a href="javascript:void(0);">1</a></li>
+                <li><a href="javascript:void(0);">1</a></li>
+                <li><a href="javascript:void(0);">1</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Dynamic View -->
+    <div class="col-lg-9">
+      <div class="raga-card shadow card-hover my-3">
+        <div class="raga-card-header">
+          <div class="raga-card-header-first">
+            <h4 class="mb-0">
+              Generation <span class="badge-red">TRACE</span>
+            </h4>
+          </div>
+          <!-- <div class="raga-card-header-second">
+            <div class="d-flex">
+              <p class="mb-0 me-2">
+                <i class="bi bi-calendar-event"></i>
+                <span>14/02/2024, 12:53:53</span>
+              </p>
+              <p class="mb-0">Latency: <span>0.3ms</span></p>
+            </div>
+          </div> -->
+        </div>
+        <div class="raga-card-body p-3">
+          <div class="mb-4">
+            <h6>Prompt</h6>
+
+            <div class="bg-body p-3">
+              <p>{{result.get('prompt') or '--'}}</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h6>Response</h6>
+
+            <div class="bg-light-green p-3">
+              <p>{{result.get('response') or '--'}}</p>
+            </div>
+          </div>
+          {% if result.get('Ground Truth') %}
+          <div class="mb-4">
+            <h6>Ground Truth</h6>
+            
+            <div class="bg-body p-3">
+              <p>{{result.get('Ground Truth') or '--'}}</p>
+            </div>
+          </div>
+          {% endif %}
+          {% if result.get('context') %}
+          <div class="mb-4">
+            <h6>Context</h6>
+
+            <div class="p-3">
+              <p>{{result.get('context')|tojson or '--'}}</p>
+            </div>
+          </div>
+          {% endif %}
+          <!-- <div>
+            <h6>Metadata</h6>
+            <div class="listItem"><span>Kind</span><span>Chain</span></div>
+            <div class="listItem">
+              <span>Status</span><span>{{result.Status}}</span>
+            </div>
+            <div class="listItem">
+              <span>Start Time</span><span>{{result['Start Time']}}</span>
+            </div>
+            <div class="listItem">
+              <span>End Time</span><span>{{result['End Time']}}</span>
+            </div>
+            <div class="listItem">
+              <span>Child Span</span><span>{{result['Child Span']}}</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

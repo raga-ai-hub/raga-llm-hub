@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid p-5 min-vh-100">
+  <div class="row">
+    <div class="col-12">
+      <img class="logo-top" src="./logoG.png" />
+      <h1 class="mb-0 mt-2">Test Overview</h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <div class="horizontal-scroll">
+        {% for test_run_id, tests in uniq_tests.items() %} {% include
+        'components/card.html' %} {%endfor%}
+      </div>
+    </div>
+    <!-- SideBar -->
+    <div class="col-lg-3">
+      <!-- HyperParameter -->
+      <!-- <div class="raga-card shadow card-hover my-3">
+        <div class="raga-card-header">
+          <div class="raga-card-header-first">
+            <h4 class="mb-0">HyperParameter</h4>
+          </div>
+        </div>
+        <div class="raga-card-body">
+          <div class="listItem listItem-primary">
+            <span>Model Name</span><span>GPT - 3.5 Turbo</span>
+          </div>
+          <div class="listItem listItem-primary">
+            <span>Dataset</span><span>RObERTa</span>
+          </div>
+          <div class="listItem listItem-primary">
+            <span>Context</span><span>350</span>
+          </div>
+        </div>
+      </div> -->
+      <!-- Tests -->
+      <div class="raga-card shadow card-hover">
+        <div class="raga-card-header">
+          <div class="raga-card-header-first">
+            <h4 class="mb-0">
+              Tests <span class="badge-type">{{uniq_tests|length}}</span>
+            </h4>
+          </div>
+        </div>
+        <div class="raga-card-body">
+          {% for test_run_id, tests in uniq_tests.items() %} {% include
+          'components/checkbox.html' %} {%endfor%}
+        </div>
+      </div>
+    </div>
+    <!-- Dynamic View -->
+    <div class="col-lg-9">
+      <div class="raga-card mt-3">
+        <div class="raga-card-header">
+          <div class="raga-card-header-first">
+            <h4 class="mb-0">Data Level View</h4>
+          </div>
+        </div>
+        <div id="table-scroll" class="table-scroll">
+          <div class="table-wrap">
+            <table class="p-table">
+              <thead>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  window.jsonData=JSON.parse({{target_results|tojson}})
+</script>
+{% endblock %}

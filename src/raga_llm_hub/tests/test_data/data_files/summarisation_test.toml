@@ -1,0 +1,24 @@
+[1]
+prompt = "The Declaration of Independence was adopted on July 4, 1776, following a series of events such as the Boston Tea Party and the Battles of Lexington and Concord. This led to the formation of the United States, triggering the American Revolutionary War against Britain. The immediate consequences included the drafting of the Articles of Confederation and the formation of a new government."
+response = "The Declaration of Independence, adopted on July 4, 1776, emerged from events like the Boston Tea Party, sparking the American Revolutionary War and leading to the formation of the United States."
+expected_result = ["The summarization should capture the key events leading to the declaration of independence.","It should highlight events like the Boston Tea Party, Battles of Lexington and Concord, and the immediate consequences.","A higher score is expected for accurate and comprehensive summarization."]
+
+[2]
+prompt = "Photosynthesis is a complex process in plants where chlorophyll plays a crucial role. It involves the absorption of sunlight, conversion of carbon dioxide and water into glucose, and the release of oxygen. Chlorophyll, located in the chloroplasts, captures sunlight and initiates the process. This process is vital for the production of food and oxygen in plants."
+response = "Photosynthesis is a vital plant process involving chlorophyll, sunlight absorption, and conversion of carbon dioxide and water into glucose, releasing oxygen. It sustains plant food and oxygen production."
+expected_result = ["The summarization should cover the process of photosynthesis, highlighting the role of chlorophyll and the importance of sunlight.","Key points should include sunlight absorption, conversion of CO2 and water to glucose, and oxygen release.","A higher score is expected for accurate and detailed summarization."]
+
+[3]
+prompt = "The Industrial Revolution, spanning the 18th and 19th centuries, brought significant changes. It led to the transition from agrarian economies to industrialized ones, impacting society with urbanization and social changes. Economically, it boosted production and trade. Technologically, innovations like the steam engine revolutionized manufacturing processes."
+response = "The 18th-19th century Industrial Revolution transformed agrarian societies into industrialized ones, causing urbanization and social shifts. It enhanced production, trade, and introduced transformative technologies like the steam engine."
+expected_result = ["The summarization should cover the impact of the Industrial Revolution on society, economy, and technology","Key points should include urbanization, social changes, economic boost, and technological innovations.","A higher score is expected for accurate and insightful summarization."]
+
+[4]
+prompt = "World War I was triggered by a complex web of political, economic, and social factors. The assassination of Archduke Franz Ferdinand, militarism, alliances, and imperialistic ambitions were political causes. Economically, competition and colonial rivalries played a role. Social tensions also contributed. Consequences included the Treaty of Versailles, redrawing of borders, and the League of Nations."
+response = "World War I resulted from political, economic, and social factors, including the assassination of Archduke Franz Ferdinand, political alliances, economic competition, and social tensions. Consequences included the Treaty of Versailles and border changes."
+expected_result = ["The summarization should cover the causes and consequences of World War I, considering political, economic, and social factors.","Key points should include the assassination, political causes, economic factors, social tensions, Treaty of Versailles, and the League of Nations.","A higher score is expected for accurate and comprehensive summarization."]
+
+[5]
+prompt = "DNA, or deoxyribonucleic acid, is a double-helix structure containing genetic instructions. It consists of nucleotides with adenine, thymine, cytosine, and guanine bases. The structure allows DNA to replicate and carry genetic information. The sequence of bases encodes genes, determining traits and transmitting genetic information from one generation to the next."
+response = "DNA is a double-helix structure with adenine, thymine, cytosine, and guanine bases, encoding genes for trait determination and genetic transmission across generations through replication."
+expected_result = ["The summarization should cover the structure and function of DNA, emphasizing its role in genetic information transmission.","Key points should include the double-helix structure, nucleotides, replication, and the encoding of genes for trait transmission.","A higher score is expected for accurate and detailed summarization."]

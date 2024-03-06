@@ -1,0 +1,19 @@
+[1]
+prompt = "The sun rises in the east and sets in the west. It's a natural phenomenon that occurs every day."
+expected_result = "The readability score should be high, indicating easy comprehension."
+
+[2]
+prompt = "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigments."
+expected_result = "The readability score should be moderate, reflecting a moderate level of difficulty in understanding."
+
+[3]
+prompt = "In the realm of quantum mechanics, entanglement is a phenomenon where two or more particles become connected in such a way that the state of one particle instantaneously influences the state of the other, regardless of the distance between them."
+expected_result = "The readability score should be relatively lower, indicating a more complex and challenging text."
+
+[4]
+prompt = "The abstract concept of time has puzzled philosophers and scientists alike, leading to diverse interpretations and theories."
+expected_result = "The readability score should reflect the ambiguity in the text, neither too high nor too low."
+
+[5]
+prompt = "Random jumble of words without clear meaning or structure."
+expected_result = "The readability score should be very low, indicating poor coherence and difficulty in understanding."

@@ -1,0 +1,19 @@
+[1]
+prompt = "The quick brown fox jumps over the lazy dog."
+expected_result = "ince the text is straightforward and commonly understood, the grade score should be low"
+
+[2]
+prompt = "In quantum mechanics, the Schrödinger equation describes the evolution of a system's wave function over time."
+expected_result = "The use of technical terms and complex concepts should result in a higher grade score, indicating a higher level of education needed to understand the text."
+
+[3]
+prompt = "This contract is entered into on this day, by and between the parties, hereinafter referred to as the 'Buyer' and the 'Seller'."
+expected_result = "Legal documents often require a specific legal education to comprehend. Therefore, the grade score should be relatively high."
+
+[4]
+prompt = "Once upon a time, in a magical land, there lived a friendly dragon named Sparkle."
+expected_result = "Children's stories are typically designed for younger audiences, so the grade score should be low, indicating a lower level of education needed."
+
+[5]
+prompt = "The study conducted an experiment to analyze the effects of the newly discovered enzyme on cellular metabolism."
+expected_result = "A scientific research paper would contain specialized terminology and in-depth analysis, resulting in a higher grade score."

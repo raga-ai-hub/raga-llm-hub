@@ -1,0 +1,22 @@
+[1]
+prompt = "What is the capital of France?"
+context = ["London is a city.", "Mumbai is the capital of Maharastra.", "The Eiffel Tower is located in Paris."]
+
+[2]
+prompt = "Who wrote Hamlet?"
+context = ["William Shakespeare wrote Hamlet.", "Hamlet is a tragedy by William Shakespeare.", "Shakespearean plays include Hamlet."]
+
+
+[3]
+prompt = "Who directed the movie Oppenhiemer?"
+context = ["Tokyo is the capital of Japan", "Christopher Nolan", "Tokyo hosted the 1964 Summer Olympics."]
+
+
+[4]
+prompt = "Who is the president of the United States?"
+context = ["London is a city.", "Barack Obama is the president of United States", "The Eiffel Tower is located in Paris."]
+
+
+[5]
+prompt = "What is the capital of Germany?"
+context = ["Berlin is the capital of Germany.", "Germany is known for its history and culture.", "The Berlin Wall divided East and West Germany."]

@@ -1,0 +1,24 @@
+[1]
+prompt = "Where is the nearest train station?"
+response = "La estación de tren más cercana está a dos cuadras de aquí."
+expected_result = The model output fails the language same test as it is in Spanish, while the prompt is in English.
+
+[2]
+prompt = "Could you recommend a good Italian restaurant in the neighborhood?"
+response = "Sure! I suggest trying out Trattoria Bella Italia on Main Street."
+expected_result = "The model output passes the language same test as both the prompt and response are in English."
+
+[3]
+prompt = "What are the ingredients needed for a classic French onion soup?"
+response = "Les ingrédients nécessaires pour une soupe à l'oignon classique sont les suivants..."
+expected_result = "The model output fails the language same test as it is in French, while the prompt is in English."
+
+[4]
+prompt = "Can you help me with directions to the nearest bus stop?"
+response = "Lo siento, no hablo inglés."
+expected_result = "The model output fails the language same test as it is in Spanish, while the prompt is in English."
+
+[5]
+prompt = "Recommend a good book for someone interested in astronomy."
+response = "I recommend 'Cosmos' by Carl Sagan for a fascinating journey through the universe."
+expected_result = "The model output passes the language same test as both the prompt and response are in English."

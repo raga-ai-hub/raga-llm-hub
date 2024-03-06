@@ -1,0 +1,94 @@
+site_name: RagaLLMEval
+site_author: RagaAI Pvt. Ltd.
+site_description: A comprehensive test suite for LLMs and RAG applications
+site_url: https://raga.ai/
+repo_url: https://github.com/aristotle-ai/raga-llm-eval
+repo_name: aristotle-ai/raga-llm-eval
+
+copyright: |
+  Copyright © 2024 <a href="https://raga.ai/">RagaAI Pvt. Ltd.</a>
+
+nav:
+  - Getting Started:
+    - Index: index.md
+    - Installation: installation.md
+  - Usage:
+    - Examples: examples.md
+    - FAQ: faq.md
+  - About the tests: about_the_tests.md
+  - Tests:
+    - Bias Test: test_docs/bias_test.md
+    - Coherence Test: test_docs/coherence_test.md
+    - Complexity Test: test_docs/complexity_test.md
+    - Conciseness Test: test_docs/conciseness_test.md
+    - Consistency Test: test_docs/consistency_test.md
+    - Contextual Recall Test: test_docs/contextual_recall_test.md
+    - Contextual Precision Test: test_docs/contextual_precision_test.md
+    - Contextual Relevancy Test: test_docs/contextual_relevancy_test.md
+    - Correctness Test: test_docs/correctness_test.md
+    - Cosine Similarity Test: test_docs/cosine_similarity_test.md
+    - Cover Test: test_docs/cover_test.md
+    - Faithfulness Test: test_docs/faithfulness_test.md
+    - Generic Evaluation Test: test_docs/generic_evaluation_test.md
+    - Hallucination Test: test_docs/hallucination_test.md
+    - Relevancy Test: test_docs/relevancy_test.md
+    - Grade Score Test: test_docs/grade_score_test.md
+    - Maliciousness Test: test_docs/maliciousness_test.md
+    - Readability Test: test_docs/readability_test.md
+    - Toxicity Test: test_docs/toxicity_test.md
+    - Summarisation Test: test_docs/summarisation_test.md
+    - Length Test: test_docs/length_test.md
+    - Winner Test: test_docs/winner_test.md
+    - Overall Test: test_docs/overall_test.md
+    - PoS Test: test_docs/pos_test.md
+    - Toxicity Test: test_docs/response_toxicity_test.md
+    - Refusal Test: test_docs/refusal_test.md
+    - Prompt Injection Test: test_docs/prompt_injection_test.md
+    - Sentiment Analysis Test: test_docs/sentiment_analysis_test.md
+
+theme:
+  name: "material"
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
+  palette:
+    primary: custom
+  features:
+    - announce.dismiss
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - toc.follow
+    - toc.integrate
+    - navigation.top
+
+plugins:
+- search
+- mkdocstrings
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - tables
+  - def_list
+
+# extra:
+#   social:
+#     - icon: github
+#       link: https://github.com/aristotle-ai/raga-llm-eval
+
+extra_css:
+  - stylesheets/extra.css

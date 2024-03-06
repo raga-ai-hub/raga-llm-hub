@@ -1,0 +1,34 @@
+[1]
+prompt = "What is the capital of France?"
+response = "The capital of France is Paris."
+expected_response = "Paris."
+context = "Geography quiz."
+expected_result = "High recall score, as the prompt, response, and expected response align well with the provided context."
+
+[2]
+prompt = "Tell me about famous landmarks."
+response = "The Eiffel Tower is an iconic landmark."
+expected_response = "Eiffel Tower."
+context = "Discussion about landmarks worldwide."
+expected_result = "Moderate recall score, as the prompt is broad, and the context might not strongly align with the expected response."
+
+[3]
+prompt = "Explain the concept of photosynthesis."
+response = "Photosynthesis is the process by which plants convert light into energy."
+expected_response = "Convert light into energy."
+context = "Biology class discussion."
+expected_result = "Comparatively lower recall score, as the model used is different, affecting the contextual alignment."
+
+[4]
+prompt = "Why is the sky blue?"
+response = "The sky appears blue due to Rayleigh scattering."
+expected_response = "Rayleigh scattering."
+context = "Physics lesson."
+expected_result = "High recall score, and the reason for the correct response is included in the output details."
+
+[5]
+prompt = "List three programming languages."
+response = "Java, Python, C++."
+expected_response = "Java, Python, C++."
+context = "Programming languages discussion."
+expected_result = "High recall score, and the threshold is considered, leading to a positive outcome despite some variations."

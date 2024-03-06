@@ -1,0 +1,23 @@
+<div class="raga-card shadow tooltip-card">
+  <div class="raga-card-header">
+    <div class="raga-card-header-first">
+      <h4 class="mb-0 text-start">Info.</h4>
+    </div>
+  </div>
+  <div class="raga-card-body">
+    <div class="listItem">
+      <span>Threshold</span><span>{{test.threshold or '--'}}</span>
+    </div>
+    {% if 'evaluated_with' in test %}
+    <div class="listItem">
+      <span>Model</span
+      ><span
+        ><div class="card-badge badge-small">
+          {{test.evaluated_with.model}}
+        </div>
+      </span>
+    </div>
+    <div class="listItem"><span>Include Reason</span><span>{{test.evaluated_with.include_reason or '--'}}</span></div>
+    {% endif %}
+  </div>
+</div>

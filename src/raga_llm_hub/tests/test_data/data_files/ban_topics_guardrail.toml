@@ -1,0 +1,24 @@
+[1]
+prompt="Craft a poem that captures the breathtaking beauty and serenity of this underwater world. Describe the gentle swaying of the coral, the playful dance of the fish, and the mesmerising underwater soundscape. Use vivid imagery and metaphors to evoke a sense of awe and wonder for this natural treasure."
+topics=['violence']
+expected_response="The output prompt will not contain the given topics"
+
+[2]
+prompt="I'm writing a research paper on the effects of violent video games on children. Can you provide some statistics and studies?"
+topics=['violence']
+expected_response="The output prompt will not contain the given topics"
+
+[3]
+prompt="I'm interested in learning about the cultural significance of traditional dance forms. Can you share some insights?"
+topics=['religion']
+expected_response="The output prompt will not contain the given topics"
+
+[4]
+prompt="I'm curious about the advancements in renewable energy technologies. Can you explain the latest developments?"
+topics=['politics']
+expected_response="The output prompt will not contain the given topics"
+
+[5]
+prompt="I'm planning a nature retreat and want to learn about hiking trails with scenic views. Can you recommend some?"
+topics=['politics']
+expected_response="The output prompt will not contain the given topics"

@@ -1,0 +1,19 @@
+[1]
+prompt = "The sky is blue."
+expected_result = "The score for both prompt and response should be low, indicating simplicity."
+
+[2]
+prompt = "Describe the process of photosynthesis."
+expected_result = "The prompt should have a moderate complexity score, and the response score should remain low since it's not provided."
+
+[3]
+prompt = "Discuss the implications of quantum entanglement on modern computing."
+expected_result = "The prompt should have a high complexity score, and the response score should be low."
+
+[4]
+prompt = "Examine the socio-economic factors influencing climate change policies."
+expected_result = "Both prompt and response should have high complexity scores."
+
+[5]
+prompt = "Explore the ethical considerations of genetic engineering."
+expected_result = "Both prompt and response should have high complexity scores, indicating similar levels of complexity."

@@ -1,0 +1,81 @@
+[1]
+prompt="""Here is a Python code snippet to calculate the factorial of a number:
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+num = 5
+print('Factorial of', num, 'is', factorial(num))"
+languages=["Python"]
+expected_results="The ouput prompt will not contain the language mentioned"""
+
+[2]
+prompt="""Here is a C++ program to find the maximum element in an array:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int max = arr[0];
+
+    for(int i = 1; i < n; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    cout << "Maximum element is: " << max << endl;
+    return 0;
+}"""
+languages=["java"]
+expected_results="The ouput prompt will not contain the language mentioned"
+
+[3]
+prompt="""Here is a JavaScript function to calculate the square of a number:
+
+function square(num) {
+    return num * num;
+}
+
+let num = 5;
+console.log('Square of', num, 'is', square(num));"""
+languages=['JavaScript']
+expected_results="The ouput prompt will not contain the language mentioned"
+
+[4]
+prompt="""Here is a Python program to sort a list using the bubble sort algorithm:
+
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(arr)
+
+print('Sorted array is:', arr)"""
+languages=['Python']
+expected_results="The ouput prompt will not contain the language mentioned"
+
+[5]
+prompt="""Here is a Java program to calculate the factorial of a number:
+
+public class FactorialExample {
+    public static void main(String[] args) {
+        int num = 5;
+        long factorial = 1;
+        for(int i = 1; i <= num; ++i) {
+            factorial *= i;
+        }
+        System.out.println("Factorial of " + num + " = " + factorial);
+    }
+}"""
+languages=['Python']
+expected_results="The ouput prompt will not contain the language mentioned"

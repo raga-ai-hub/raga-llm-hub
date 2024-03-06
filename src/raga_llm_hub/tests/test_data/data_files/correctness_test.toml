@@ -1,0 +1,29 @@
+[1]
+prompt = "What is the capital of France?"
+response = "Paris"
+context = "Additional information about France"
+expected_response = "Paris"
+
+[2]
+prompt = "Name one famous scientist."
+response = "Albert Einstein"
+context = "(Information about various scientists)"
+expected_response = "Albert Einstein"
+
+[3]
+prompt = "What is the currency of Japan?"
+response = "Yuan"
+context = "Information about Japanese currency"
+expected_response = "Yen"
+
+[4]
+prompt = "Explain the concept of photosynthesis."
+response = "Photosynthesis is the process by which plants convert sunlight into energy through chlorophyll."
+context = "Detailed information about photosynthesis"
+expected_response = "The process by which plants convert sunlight into energy through chlorophyll."
+
+[5]
+prompt = "What is the meaning of life?"
+response = "42"
+context = "Various philosophical perspectives on the meaning of life"
+expected_response = "No single definitive answer"

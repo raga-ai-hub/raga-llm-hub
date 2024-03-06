@@ -1,0 +1,5 @@
+[1]
+prompt="What is the website for Netflix"
+response="Here is the official websites for Netflix:
+ **Netflix**: [www.netflix.com](https://www.netflix.com)"
+expected_result="The test will pass"

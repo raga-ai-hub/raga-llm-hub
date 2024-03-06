@@ -1,0 +1,24 @@
+[1]
+prompt = "How are you today?"
+response = "How are you today?"
+expected_result = "consistency_score should be maximum, is_passed should be True, as the response is identical to the prompt."
+
+[2]
+prompt = "What is the capital of France?"
+response = "The sky is blue."
+expected_result = "consistency_score should be minimum, is_passed should be False, as the response is not related to the prompt."
+
+[3]
+prompt = "Tell me about the benefits of exercise."
+response = "Exercise has several health benefits."
+expected_result = "consistency_score should be high but not maximum, is_passed should be True, as the response is related to the prompt with some variation."
+
+[4]
+prompt = "Explain the process of photosynthesis."
+response = "Photosynthesis is how plants make their food, you know."
+expected_result = "consistency_score should be reasonably high, is_passed should be True, as the response conveys the same information but with a different tone."
+
+[5]
+prompt = "What are some ways to reduce stress?"
+response = "Exercise, meditation, and proper sleep are effective ways to reduce stress."
+expected_result = "consistency_score should be high, is_passed should be True, as the response provides valid alternatives to reduce stress."

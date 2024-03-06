@@ -1,0 +1,24 @@
+[1]
+prompt = "How does photosynthesis work?"
+response = "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy."
+expected_result = "Since the response provides a clear and accurate explanation of photosynthesis related to the prompt, the cosine similarity score should be high. The generated dictionary should indicate a high similarity score."
+
+[2]
+prompt = "What is the capital of France?"
+response = "The capital of France is Paris."
+expected_result = "Since the response is a direct and accurate answer to the prompt, the cosine similarity score should be very high. The generated dictionary should indicate a score close to 1."
+
+[3]
+prompt = "Describe the process of nuclear fission."
+response = "Nuclear fission is a type of nuclear reaction in which the nucleus of an atom splits into two or more smaller nuclei."
+expected_result = "The response is relevant but may not be as detailed or accurate as the prompt. The cosine similarity score should be moderately high, but not as high as in Scenario 1. The generated dictionary should reflect this."
+
+[4]
+prompt = "Why do cats purr?"
+response = "Cats purr for various reasons, including contentment, relaxation, and communication with their owners."
+expected_result = "The response provides relevant information related to why cats purr. The cosine similarity score should be high, and the generated dictionary should indicate a strong similarity between the prompt and response."
+
+[5]
+prompt = "Explain the concept of artificial intelligence."
+response = "Artificial intelligence refers to the simulation of human intelligence in machines that are programmed to think and learn like humans."
+expected_result = "The response is a precise and detailed explanation of artificial intelligence, highly similar to the prompt. The cosine similarity score should be very high, and the generated dictionary should indicate a score close to 1."

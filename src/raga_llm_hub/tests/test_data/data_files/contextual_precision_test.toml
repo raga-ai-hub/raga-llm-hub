@@ -1,0 +1,34 @@
+[1]
+prompt = "Describe the process of photosynthesis."
+response = "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy."
+expected_response = "The process of photosynthesis involves converting light energy into chemical energy by plants, algae, and some bacteria."
+context = "Photosynthesis is a fundamental process in biology."
+expected_result = "The method should recognize that the response accurately reflects the prompt in the given context and assign a high precision score."
+
+[2]
+prompt = "Explain the concept of global warming."
+response = "Global warming is a complex issue with various factors contributing to the rise in Earth's average temperature."
+expected_response = "Global warming is a phenomenon characterized by the increase in Earth's average temperature due to human activities and natural processes."
+context = "Many people are concerned about the impact of global warming on the environment."
+expected_result = "The method should correctly identify the relevant information in the context and provide a precise evaluation."
+
+[3]
+prompt = "What is the capital city of France?"
+response = "Paris is the capital city of France."
+expected_response = "The capital city of France is Paris."
+context = "Geography is an essential subject that covers information about countries and their capitals."
+expected_result = "he method should consider the context and evaluate the precision of different language models in generating accurate responses."
+
+[4]
+prompt = "Explain the law of supply and demand."
+response = "The law of supply and demand states that prices of goods and services are determined by their availability in the market and the level of consumer demand."
+expected_response = "The law of supply and demand explains how prices are influenced by the balance between product availability and consumer demand in the market."
+context = "Economics is a subject that studies the principles governing the production and distribution of goods and services."
+expected_result = "The method should provide detailed information on why the response is relevant in the given context."
+
+[5]
+prompt = "Discuss the impact of technology on education."
+response = "Technology has revolutionized education by providing new tools for learning and enhancing communication between students and teachers."
+expected_response = "The impact of technology on education is profound, with advancements enhancing learning tools and communication between students and teachers."
+context = "Education has undergone significant changes in recent years due to technological advancements."
+expected_result = "The method should evaluate precision, considering the defined threshold and provide a score based on the relevance of the response to the prompt in the given context."

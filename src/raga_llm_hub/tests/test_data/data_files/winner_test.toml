@@ -1,0 +1,24 @@
+[1]
+response = "The quick brown fox jumps over the lazy dog."
+expected_response = "The quick brown fox jumps over the lazy dog."
+concept_set = ["quick_V", "brown_A", "fox_N", "jump_V", "lazy_A", "dog_N"]
+
+[2]
+response = "A brown fox quickly jumps over a sleeping dog."
+expected_response = "The quick brown fox jumps over the lazy dog."
+concept_set = ["quick_V", "brown_A", "fox_N", "jump_V", "lazy_A", "dog_N"]
+
+[3]
+response = "A cat jumps over a dog."
+expected_response = "The quick brown fox jumps over the lazy dog."
+concept_set = ["quick_V", "brown_A", "fox_N", "jump_V", "lazy_A", "dog_N"]
+
+[4]
+response = "I sit at the front of the table and enjoy my food."
+expected_response = "The family sits at the table with delicious food placed in front of them."
+concept_set = ["food_N", "front_N", "sit_V", "table_N"]
+
+[5]
+response = "A quick brown fox jumps over the lazy dog."
+expected_response = "The quick brown fox jumps over the lazy dog."
+concept_set = ["quick_V", "brown_A", "fox_N", "jump_V", "lazy_A", "dog_N"]

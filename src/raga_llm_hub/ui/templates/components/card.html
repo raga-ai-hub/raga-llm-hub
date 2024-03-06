@@ -1,0 +1,38 @@
+<div class="raga-card shadow card-hover" id="card-{{test_run_id}}">
+  <div class="raga-card-header">
+    <div class="raga-card-header-first">
+      <h4 class="mb-0">
+        {{ get_test_name_for_test_run_id(tests, test_run_id) }}
+        {% set test = get_test_for_test_run_id(tests, test_run_id) %}
+        <i
+          class="bi bi-info-circle tooltip-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          data-bs-html="true"
+          title='{% include "components/tooltip.html"%}'
+        ></i>
+      </h4>
+    </div>
+  </div>
+  <div class="raga-card-body">
+    <div class="listItem">
+      <span>Total Response</span><span>{{tests|length}}</span>
+    </div>
+    <div class="listItem">
+      <span>DataPoints</span>
+      <span>
+        <div class="card-badge badge-success">
+          <div class="listItem">
+            <span>Pass:</span><span> {{count_of_key(tests, True)}}</span>
+          </div>
+        </div>
+        <br />
+        <div class="card-badge badge-fail">
+          <div class="listItem">
+            <span>Fail: </span><span> {{count_of_key(tests, False)}}</span>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>

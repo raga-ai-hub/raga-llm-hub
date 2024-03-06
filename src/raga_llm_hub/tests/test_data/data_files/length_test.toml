@@ -1,0 +1,14 @@
+[1]
+response = "Hello!"
+
+[2]
+response = "This is a sample sentence."
+
+[3]
+response = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+[4]
+response = ""
+
+[5]
+response = "This is the first sentence. Here is the second one."

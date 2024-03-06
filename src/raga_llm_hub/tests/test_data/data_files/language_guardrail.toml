@@ -1,0 +1,19 @@
+[1]
+prompt='''Given the personal profile of Johnathan Edward Doe, please summarise the following resume:
+
+Profile:
+
+- Full Name: Johnathan Edward Doe.
+- Date of Birth: April 12, 1990.
+- Address: 123 Elm Street, Springfield, IL, 62701.
+- Email: john.doe@fidelity.com.
+- Phone Number: (123) 456-7890.
+- Educational Background:
+    - Springfield High School, Graduated in 2008;
+    - Springfield University, B.Sc. Computer Science, Graduated in 2012.
+- Employment:
+    - JP Morgan Chase, Software Engineer, 2012-2015;
+    - Chase" "M1 Finance, Senior Software Engineer, 2015-2021;
+    - XYZ Global Systems, Senior Software Developer, 2015-2021.
+'''
+expected_result=""

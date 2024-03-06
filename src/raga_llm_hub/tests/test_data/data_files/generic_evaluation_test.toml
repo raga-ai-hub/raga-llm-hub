@@ -1,0 +1,44 @@
+[1]
+prompt = "Tell me about the benefits of exercise."
+response = "Regular exercise can improve cardiovascular health, boost mood, and help with weight management."
+context = "The user is looking for information on the benefits of exercise."
+expected_response = "Regular physical activity enhances cardiovascular health, uplifts mood, and aids in weight control."
+evaluation_name = "Fitness Evaluation"
+evaluation_criteria = "Relevance, Clarity, Informativeness"
+expected_result = "evaluation score is high, as the response is relevant, clear, and informative"
+
+[2]
+prompt = "What are the main causes of climate change?"
+response = "I'm not sure. Climate change is a complex topic."
+context = "The user is seeking information on the causes of climate change."
+expected_response = "The primary causes of climate change are human activities, such as burning fossil fuels and deforestation."
+evaluation_name = "Climate Change Knowledge"
+evaluation_criteria = "Accuracy, Detail"
+expected_result = "evaluation score is low, as the response lacks accuracy and detail"
+
+[3]
+prompt = "Explain the process of photosynthesis."
+response = "Photosynthesis is the process by which plants convert sunlight into energy. It involves the absorption of light, carbon dioxide, and the release of oxygen."
+context = "The user is studying biology and wants a detailed explanation of photosynthesis."
+expected_response = "Photosynthesis is the process by which plants convert sunlight into energy, involving light absorption, carbon dioxide intake, and oxygen release."
+evaluation_name = "Photosynthesis Explanation"
+evaluation_criteria = "Accuracy, Clarity, Conciseness"
+expected_result = "evaluation score is moderate, as the response is accurate and clear but could be more concise"
+
+[4]
+prompt = "What is the capital of France?"
+response = "The capital of France is Paris."
+context = "The user is planning a trip to Europe and needs basic information about different countries."
+expected_response = "Paris is the capital of France, a vibrant city with rich cultural heritage and iconic landmarks."
+evaluation_name = "Travel Information"
+evaluation_criteria = "Correctness, Relevance"
+expected_result = "evaluation score is high, as the response is correct and relevant to the user's context"
+
+[5]
+prompt = "What is the largest planet in our solar system?"
+response = "The largest planet in our solar system is Jupiter."
+context = "The user is a science enthusiast looking for accurate information."
+expected_response = "Jupiter, the largest planet in our solar system, has a diameter of about 86,881 miles and is known for its massive size."
+evaluation_name = "Astronomy Facts"
+evaluation_criteria = "Accuracy"
+expected_result = "evaluation score is high, as the response is correct and relevant to the user's context"

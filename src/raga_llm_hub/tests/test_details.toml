@@ -1,0 +1,552 @@
+[relevancy_test]
+description = "Measures the relevance of LLM response to the input prompt"
+required_data =['prompt','response','context']
+arguments = ['model','include_reason','threshold']
+optional_arguments = ['model','include_reason','threshold']
+test_tags = ["Relevance-Understanding"]
+expected_output = "Dictionary with relevancy score, reason, and details"
+interpretation = "Higher score means more relevant"
+
+[contextual_precision_test]
+description = "Evaluates if relevant nodes in context are ranked higher"
+required_data = ['prompt','expected_response','context']
+arguments = ['model','include_reason','threshold']
+optional_arguments = ['model','include_reason','threshold']
+test_tags = ["Relevance-Understanding"]
+expected_output = "Dictionary with precision score, reason, and details"
+interpretation = "Higher score means more precise"
+
+[contextual_recall_test]
+description = "Measures alignment of retrieval context with expected response"
+required_data = ['expected_response','context']
+arguments = ['model','include_reason','threshold']
+optional_arguments = ['model','include_reason','threshold']
+test_tags = ["Relevance-Understanding"]
+expected_output = "Dictionary with recall score, reason, and details"
+interpretation = "Higher score means better recall"
+
+[contextual_relevancy_test]
+description = "Evaluates overall relevance of context to input prompt"
+required_data = ['prompt','context']
+arguments = ['model','include_reason','threshold']
+optional_arguments = ['model','include_reason','threshold']
+test_tags = ["Relevance-Understanding"]
+expected_output = "Dictionary with relevancy score, reason, and details"
+interpretation = "Higher score means more relevant context"
+
+[faithfulness_test]
+description = "Assesses if LLM response aligns with retrieval context"
+required_data = ['response','context']
+arguments = ['model','include_reason','threshold']
+optional_arguments = ['model','include_reason','threshold']
+test_tags = ["Content Quality"]
+expected_output = "Dictionary with faithfulness score, reason, and details"
+interpretation = "Higher score means more faithful"
+
+# [maliciousness_test]
+# description = "This metric checks the maliciousness of prompt and response"
+# required_data = ['prompt','response','context']
+# arguments = ['model','threshold']
+# optional_arguments = ['model','threshold']
+# test_tags = ["Safety-Bias"]
+# expected_output = "A dictionary containing the prompt, response, expected response, context, maliciousness_score whether it's malicious, threshold, and evaluation details."
+# interpretation = "more score means more malicious"
+
+[summarisation_test]
+description = "Determines if LLM generates factually correct summaries with necessary details"
+required_data = ['prompt','response']
+arguments = ['model','threshold']
+optional_arguments = ['model','threshold']
+test_tags = ["Content Quality"]
+expected_output = "Dictionary with summarisation score and other details"
+interpretation = "Higher score means better summary quality"
+
+[consistency_test]
+description = "Provides a score for the consistency."
+required_data = ['prompt','response']
+arguments = ['model','threshold','num_samples']
+optional_arguments = ['model','threshold','num_samples']
+test_tags = ["Content Quality"]
+expected_output = "A dictionary containing the prompt, response, consistency_score, is_passed and threshold"
+interpretation = "Higher score means better consistency"
+
+[conciseness_test]
+description = "This metric checks the conciseness of your LLM response"
+required_data = ['prompt','response']
+arguments = ['context','strictness','model']
+optional_arguments = ['context','strictness','model']
+test_tags = ["Content Quality"]
+expected_output = "Dictionary with conciseness score, and other relevant information"
+interpretation = "Score of 1 means concise, 0 means not concise"
+
+[coherence_test]
+description = "This metric checks the coherence of your LLM response"
+required_data = ['prompt','response','context']
+arguments = ['strictness','model']
+optional_arguments = ['context','strictness','model']
+test_tags = ["Content Quality"]
+expected_output = "Dictionary with coherence score, and other relevant information"
+interpretation = "Score of 1 means coherent, 0 means not coherent"
+
+[cover_test]
+description = "Checks whether all concepts are covered by model response."
+required_data = ['response','concept_set']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary containing the response, concept_set, ratio indicating no of concepts covered."
+interpretation = "Using this test, you can check whether all concepts are used in model response or not. Additionally, you can test this for multiple responses and infer the average."
+
+[pos_test]
+description = "Checks whether (PoS) of ALL given concepts are correct in model response."
+required_data = ['response','concept_set']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary containing the response, concept_set, ratio indicating no of correctly classified (PoS)."
+interpretation = "Using this test, you can check whether model response has same PoS tags as mentioned in concept_set. Additionally, you can test this for multiple responses and infer the average."
+
+[length_test]
+description = "The number of words in the generated response."
+required_data = ['response']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary containing the response, length of generated response."
+interpretation = "Using this test, you can check what average length is generated when you run your model for multiple responses."
+
+[winner_test]
+description = "Compares responses of two models or model and human annotation."
+required_data = ['response','ground_truth','concept_set']
+arguments = ['model','temperature','max_tokens']
+optional_arguments = ['model','temperature','max_tokens']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary containing the response, ground_truth, concept_set, a boolean indicating which model is better: 1 indicating model is better than ground_truth, and the model evaluated with."
+interpretation = "Using this test, you can compare responses generated by two models or a model and ground truth."
+
+[overall_test]
+description = "Compare overall score of two models on the provided task."
+required_data = ['response','ground_truth','concept_set']
+arguments = ['model','temperature','max_tokens']
+optional_arguments = ['model','temperature','max_tokens']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary containing the response, ground_truth, concept_set, overall_score which is product of winner_test score, pos_test score and cover_test score, and the model evaluated with."
+interpretation = "Using this test, you can evaluate models and see which model performs best"
+
+# [refusal_test]
+# description = "Provides a score for the refusal similarity of response."
+# required_data = ['response']
+# arguments = ['threshold']
+# optional_arguments = ['threshold']
+# test_tags = ["Safety-Bias"]
+# expected_output = "A dictionary containing the response, is_passed, refusal score and threshold"
+# interpretation = "higher the score, more the chances of refusal"
+
+[prompt_injection_test]
+description = "The prompt injection test checks for the injection issue in the prompt"
+required_data = ['prompt']
+arguments = ['threshold']
+optional_arguments = ['threshold']
+test_tags = ["Safety-Bias"]
+expected_output = "A dictionary with injection score"
+interpretation = "Lower score means good prompt"
+
+[sentiment_analysis_test]
+description = "Provides a score for the sentiment of model response"
+required_data = ['response']
+arguments = ['threshold']
+optional_arguments = ['threshold']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary returning sentiment score"
+interpretation = "Higher score means positive prompt"
+
+[toxicity_test]
+description = "Provides a score for the toxicity of model response"
+required_data = ['response']
+arguments = ['threshold']
+optional_arguments = ['threshold']
+test_tags = ["Safety-Bias"]
+expected_output = "A dictionary returning the toxicity score for response"
+interpretation = "Higher score means toxic response"
+
+# [generic_evaluation_test]
+# description = "This can be use to handle generic test metrics"
+# required_data = ['prompt','response','context','expected_response']
+# arguments = ['metric_name','evaluation_criteria','model','threshold']
+# optional_arguments = ['model','threshold']
+# test_tags = ["Metric Based Tests"]
+# expected_output = "A dictionary containing the score and reason along with other information."
+# interpretation = "Higher score signifies the response for the prompt was good according to criteria"
+
+[correctness_test]
+description = "This metric checks the correctness of your LLM response compared to the expected response"
+required_data = ['prompt','response','context','expected_response']
+arguments = ['model','threshold']
+optional_arguments = ['model','threshold']
+test_tags = ["Content Quality"]
+expected_output = "Dictionary with correctness score, and other relevant information"
+interpretation = "Higher score means more correct"
+
+[hallucination_test]
+description = "Measures the hallucination score of the model's response compared to the context."
+required_data = ['response','context']
+arguments = ['model','include_reason','threshold']
+optional_arguments = ['include_reason','threshold']
+test_tags = ["Content Quality"]
+expected_output = "A dictionary containing the prompt, response, score, threshold, reason, and evaluation details."
+interpretation = "Higher score means the response is hallucinated"
+
+[bias_test]
+description = "Measures the bias score of the model's response."
+required_data = ['response']
+arguments = ['threshold']
+optional_arguments = ['threshold']
+test_tags = ["Safety-Bias"]
+expected_output = "A dictionary containing the response, score, threshold and is_passed."
+interpretation = "Higher score means the response is biased"
+
+[response_toxicity_test]
+description = "Measures the toxicity score of the model's response."
+required_data = ['response']
+arguments = ['threshold']
+optional_arguments = ['threshold']
+test_tags = ["Safety-Bias"]
+expected_output = "A dictionary containing the response, score, threshold and is_passed."
+interpretation = "Higher score means toxic response"
+
+[cosine_similarity_test]
+description = "Provides score for the cosine similarity between the prompt and response generated by the model"
+required_data = ['prompt','response']
+arguments = ['threshold']
+test_tags = ["Metric Based Tests"]
+expected_output = "A dictionary containing the prompt, response, score and other relevant information"
+interpretation = "Higher scores signifies the higher similarity between the prompt and the generated response "
+
+[grade_score_test]
+description = " Provides the grade score. The grade score means the number of years of education generally required to understand the text"
+required_data = ['prompt','response']
+arguments = ['threshold']
+optional_arguments = ['response']
+test_tags = ["Content Quality"]
+expected_output = "A dictionary containing the prompt, response, score containing the prompt grade score and response grade score and other relevant information"
+interpretation = "Higher scores signifies higher level of education needed to understand the text "
+
+# [complexity_test]
+# description = " Provides a score for the complexity of the text."
+# required_data = ['prompt','response']
+# arguments = ['threshold']
+# optional_arguments = ['response']
+# test_tags = ["Content Quality"]
+# expected_output = "A dictionary containing the prompt, response, score containing the prompt complexity and response complexity, and prompt and response submetrics"
+# interpretation = "Higher scores signifies the higher complexity of the prompt and response."
+
+[readability_test]
+description = "Provides the readability score."
+required_data = ['prompt','response']
+arguments = ['threshold']
+optional_arguments = ['response']
+test_tags = ["Content Quality"]
+expected_output = "A dictionary containing the prompt, response, score containing the prompt readabilit_score  and response readabilit_score and other relevant information"
+interpretation = "Higher scores signifies higher readability of the text. "
+
+[cost_test]
+description = "this metric measures whether the token cost of your LLM is economically acceptable."
+expected_arguments = "max cost threshold"
+required_data = ["model response token cost"]
+expected_output = "A dictionary containing the score and other info"
+test_tags = ["Metric Based Tests"]
+interpretation = "Lower scores means the model is more economically acceptable"
+
+[latency_test]
+description = "this metric measures whether the completion time of your LLM is efficient and meets the expected time limits."
+expected_arguments = "max latency threshold"
+expected_output = "A dictionary containing the score and other info"
+required_data = ["model response completion latency"]
+test_tags = ["Metric Based Tests"]
+interpretation = "Lower scores means the model is more efficient and meets the expected time limits."
+
+[harmless_test]
+description = "This checks whether the LLM model is offensive or discriminatory, either directly or through subtext or bias"
+expected_arguments = "model_type, threshold, temperature"
+expected_output = "A dictionary containing various harmless checks results along with other info"
+interpretation = "lower scores means less harmless"
+required_data = ["model response"]
+test_tags = ["Content Quality"]
+
+# [prompt_injection_modeleval_test]
+# description = "Provides model score on different attacks for different tasks like question-answering, translation, sentiment-analysis etc"
+# required_data = ['model_name']
+# expected_arguments = "threshold, temperature, max_tokens"
+# test_tags = ["Metric Based Tests"]
+# interpretation = "Higher the score, better is model performance against attacks"
+
+# [prompt_injection_modelcompare_test]
+# description = "Returns better model out of 2 by comparing performance on different attacks for different tasks like question-answering, translation, sentiment-analysis etc"
+# required_data = ['model_name_a','model_name_b']
+# expected_arguments = "threshold, temperature, max_tokens"
+# test_tags = ["Metric Based Tests"]
+# interpretation = "Higher the score, better is model performance against attacks"
+
+[chunk_impact_test]
+description = "This checks and return optimal context required to get similiar response from LLM model"
+required_data = ['context','response']
+expected_arguments = "threshold"
+test_tags = ["Content Quality"]
+expected_output = "A dictionary containing context score and optimal contexts"
+interpretation = "lower scores means suboptimal context"
+
+[ir_metrics_test]
+description = "This test evaluates a set of information retrieval (IR) metrics to measure the effectiveness of search algorithms in retrieving relevant documents."
+required_data = ['prompt','context']
+arguments = ['cutoff', 'max_rel', 'recall']
+optional_arguments = ['client', 'rel', 'min_rel', 'p', 'normalize', 'T', 'alpha', 'judged_only', 'dcg', 'gains', 'beta', 'relative', 'threshold']
+test_tags = ["IR Metrics"]
+expected_output = "A dictionary that includes the original prompt and context, along with a score for each IR metric evaluated."
+interpretation = "The scores reflect the search system's ability to identify and rank relevant documents effectively. Higher scores indicate better performance."
+
+[context_retrieval_metrics_test]
+description = "This test evaluates a set of context retrieval metrics to measure the effectiveness like Precision, Recall, F1Score, Precision at k, Recall at k and F1 score at k"
+required_data = ['expected_context','context']
+arguments = ['threshold', 'relevance_threshold', 'k']
+optional_arguments = ['threshold', 'relevance_threshold']
+test_tags = ["IR Metrics"]
+expected_output = "A dictionary that includes the metrics name along with a score and other relevant details"
+interpretation= "Higher score means better efficiency at retrieving context"
+
+[anonymize_guardrail]
+description = "Anonymize sensitive data in the text using NLP (English only) and predefined regex patterns."
+required_data = ['prompt']
+optional_arguments = ['hidden_names', 'allowed_names', 'entity_types', 'use_faker', 'use_onnx','language']
+arguments = ['threshold']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no personal information"
+interpretation = "The sanitized prompt should not contain any personal information"
+
+[deanonymize_guardrail]
+description = "deanonymize sensitive data in the text using NLP (English only) and predefined regex patterns."
+required_data = ['prompt']
+arguments = ['matching_strategy']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the sanitized_prompt, response, and a sanitized model output with personal information"
+interpretation = "The sanitized prompt should contain any personal information"
+
+[ban_competitors_guardrail]
+description = "Detect and remove competitor names from the text."
+required_data = ['prompt']
+optional_arguments = ['redact', 'model', 'threshold']
+arguments = ['competitors']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no competitor names"
+interpretation = "The sanitized prompt should not contain any competitor names"
+
+[ban_substrings_guardrail]
+description = "Detect and remove substrings from the text."
+required_data = ['prompt']
+arguments = ['substrings']
+optional_arguments = ['match_type', 'case_sensitive', 'redact', 'contains_all']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no substrings"
+interpretation = "The sanitized prompt should not contain any substrings"
+
+[ban_topics_guardrail]
+description = "Detect and ban certain topics from the prompt."
+required_data = ['prompt']
+optional_arguments = ['model', 'use_onnx','threshold']
+arguments = ['topics']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no banned topics"
+interpretation = "The sanitized prompt should not contain any banned topics"
+
+[code_guardrail]
+description = "Detect and scan if the prompt includes code in specific programming languages."
+required_data = ['prompt']
+optional_arguments = [ 'is_blocked', 'use_onnx','threshold']
+arguments = ['languages']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no code"
+interpretation = "The sanitized prompt should allow or block specific programming languages"
+
+[factual_consistency_guardrail]
+description = "Detect and remove factual inconsistencies from the text."
+required_data = ['prompt', 'response']
+optional_arguments = ['threshold', 'use_onnx']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no factual inconsistencies"
+interpretation = "The sanitized prompt should not contain any factual inconsistencies between the prompt and response"
+
+[invisible_text_guardrail]
+description = "Detect and remove invisible characters from the text."
+required_data = ['prompt']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, invisible chars, clean status, score and a sanitized prompt with no invisible characters"
+interpretation = "The sanitized prompt should not contain any invisible characters"
+
+[language_guardrail]
+description = "Detect and remove invalid languages from the text."
+required_data = ['prompt']
+optional_arguments = ['valid_languages', 'threshold', 'match_type', 'use_onnx']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no invalid languages"
+interpretation = "The sanitized prompt should not contain any invalid languages"
+
+[language_same_guardrail]
+description = "Detects if the prompt and response are in the same language"
+required_data = ['prompt', 'response']
+optional_arguments = ['threshold', 'use_onnx', 'transformers_kwargs']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and score denoting if the language is same"
+interpretation = "Low score denotes different language"
+
+# [nsfw_guardrail]
+# description = "Not safe for work is responsible for detecting language which is not suitable for work place"
+# required_data = ['prompt']
+# optional_arguments = ['threshold']
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the prompt, and score denoting if input text is safe for work or not."
+# interpretation = "Low score denotes safe text for work"
+
+# [politeness_guardrail]
+# description = "Used to test whether model response is polite or not."
+# required_data = ['prompt']
+# optional_arguments = ['threshold']
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the prompt, and score denoting if input text is polite or not."
+# interpretation = "Low score denotes polite model response."
+
+# [gibberish_guardrail]
+# description = "This test is used to classify user input as either gibberish or non-gibberish, enabling more accurate and meaningful interactions with the system."
+# required_data = ['prompt']
+# optional_arguments = ['threshold']
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the prompt, and score denoting if input text is gibberish or not."
+# interpretation = "High score denotes gibberish text"
+
+# [valid_sql_guardrail]
+# description = "This test is used to check correctness of input sql query."
+# required_data = ['prompt']
+# optional_arguments = []
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the prompt, and result denoting whether sql is correct or not."
+# interpretation = "Test is 'Passed' if Sql is correct."
+
+# [valid_csv_guardrail]
+# description = "This test is used to check correctness of input csv data."
+# required_data = ['prompt']
+# optional_arguments = []
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the prompt, and result denoting whether csv input is correct or not."
+# interpretation = "Test is 'Passed' if CSV format is correct."
+
+# [malicious_url_guardrail]
+# description = " This scanner is used to scan and detect malicious URLs in the text."
+# required_data = ['prompt','response']
+# optional_arguments = ['success_status_codes', 'use_onnx']
+# arguments = ['threshold']
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the prompt, response, and a sanitized prompt with no malicious URLs"
+# interpretation = "The sanitized prompt should not contain any malicious URLs"
+
+[no_refusal_guardrail]
+description = "Detect and handle refusals in language model output."
+required_data = ['prompt','response']
+arguments = ['match_type']
+optional_arguments = ['threshold', 'use_onnx']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and the output indicating whether the response is a refusal"
+interpretation = "The output should be indicative of whether the response is a refusal"
+
+[reading_time_guardrail]
+description = "Check the reading time of the output against a maximum time."
+required_data = ['prompt','response']
+arguments = ['threshold']
+optional_arguments = ['truncate']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and an output indicating whether the reading time is within the threshold"
+interpretation = "The response should not exceed the maximum reading time"
+
+[regex_guardrail]
+description = "Detect patterns in the output of a language model using regular expressions."
+required_data = ['prompt']
+arguments = ['match_type','patterns']
+optional_arguments = ['is_blocked', 'redact']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, valid status, score and a sanitized prompt with no patterns"
+interpretation = "The sanitized prompt should not contain any patterns"
+
+[secrets_guardrail]
+description = "Detect and remove secrets from the text."
+required_data = ['prompt']
+arguments = ['redact_mode']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, clean status, risk score and a sanitized prompt with no secrets"
+interpretation = "The sanitized prompt should not contain any secrets"
+
+[sensitive_guardrail]
+description = "Detect and remove sensitive information from the output of a language model."
+required_data = ['prompt','response']
+optional_arguments = ['threshold', 'entity_types', 'redact', 'use_onnx']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, context, score, passed status, and a sanitized prompt with no sensitive information"
+interpretation = "The sanitized prompt should not contain any sensitive information"
+
+[sentiment_guardrail]
+description = "Detect if a prompt has a sentiment score lower than a threshold."
+required_data = ['response']
+arguments = ['threshold']
+optional_arguments = ['lexicon']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, valid status, risk score and a sanitized prompt with no negative sentiment"
+interpretation = "If the sentiment score is lower than the threshold, the prompt is considered to have negative sentiment"
+
+[url_reachability_guardrail]
+description = " This scanner is used to detect and check reachability for URLs in the text."
+required_data = ['prompt','response']
+optional_arguments = ['success_status_codes','threshold']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and a score if the URLs are reachable"
+interpretation = "Low score denotes non-reachability for the URLs"
+
+[json_verify_guardrail]
+description = " This scanner is used to detect and check jsons in the text."
+required_data = ['prompt','response']
+optional_arguments = ['repair', 'required_elements']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and sanitized output with repaired json"
+interpretation = "The sanitized prompt should not contain any malfunctioned json"
+
+# [valid_python_guardrail]
+# description = " This scanner is used to detect and check python in the text."
+# required_data = ['response']
+# optional_arguments = ['prompt']
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the response with score indicating it is valid or not"
+# interpretation = "1 means valid, 0 means syntax error"
+
+# [profanity_guardrail]
+# description = " This scanner is used to detect and check profanity in the text."
+# required_data = ['response']
+# optional_arguments = ['prompt', 'threshold', 'use_onnx']
+# test_tags = ["Guardrails"]
+# expected_output = "A dictionary containing the response with score indicating it is has profanity or not"
+# interpretation = "higher the score more is profanity"
+
+[tokenlimit_guardrail]
+description = " This scanner is used to detect and check token limit in the text."
+required_data = ['prompt']
+optional_arguments = ['encoding_name', 'model']
+arguments = ['threshold']
+test_tags = ["Guardrails"]
+expected_output = "A dictionary containing the prompt, response, and sanitized output with limited tokens"
+interpretation = "The sanitized prompt should not contain tokens more than the specified number"
+
+[lmrc_vulnerability_scanner]
+description = " This tests the llm on various lmrc risks"
+required_data = []
+optional_arguments = ['model']
+arguments = ['category']
+test_tags = ["Vulnerability"]
+expected_output = "A dictionary containing the probe category, detectors score and if the model passes the risk"
+interpretation = "pass means model is lmrc risk free"
+
+[dan_vulnerability_scanner]
+description = " This tests the llm on various dan based attacks"
+required_data = []
+optional_arguments = ['model']
+arguments = ['category']
+test_tags = ["Vulnerability"]
+expected_output = "A dictionary containing the probe category, detectors score and if the model passes the risk"
+interpretation = "pass means model is dan attacks free"

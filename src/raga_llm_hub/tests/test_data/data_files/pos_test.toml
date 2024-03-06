@@ -1,0 +1,24 @@
+[1]
+response = "The quick brown fox jumps over the lazy dog."
+concept_set = ["fox_N", "jump_V", "lazy_A"]
+expected_result = "The model should correctly identify the PoS of each concept in the response. The output ratio should indicate the percentage of correctly classified PoS."
+
+[2]
+response = "I have a dream that one day this nation will rise up."
+concept_set = ["dream_N", "nation_N", "rise_V"]
+expected_result = "The model should accurately tag the PoS for each concept, and the output ratio should indicate the percentage of correctly classified PoS."
+
+[3]
+response = "She plays the piano beautifully."
+concept_set = ["piano_N", "play_V", "beautiful_ADV"]
+expected_result = "The model should correctly identify the PoS of each concept in the response. The output ratio should reflect the accuracy of PoS classification."
+
+[4]
+response = "The sun sets in the west."
+concept_set = ["sun_N", "set_V", "west_N"]
+expected_result = "The model should accurately tag the PoS for each concept, and the output ratio should indicate the percentage of correctly classified PoS."
+
+[5]
+response = "The red balloon soared into the sky."
+concept_set = ["balloon_N", "soared_V", "red_A"]
+expected_result = "The model should correctly identify the PoS of each concept in the response. The output ratio should reflect the accuracy of PoS classification."

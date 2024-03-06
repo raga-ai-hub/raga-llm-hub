@@ -1,0 +1,19 @@
+<tr>
+  <td class="fixed-side">{{ row.get('Id') }}</td>
+  <td class="fixed-side">
+    <a
+      class="table-button"
+      href="/trace/{{ row.get('Trace') }}"
+    >
+    View
+    <i class="bi bi-chevron-right"></i>
+    </a>
+  </td>
+  <td class="fixed-side">{{ row.get('Input') or '--'}}</td>
+  <td class="fixed-side">{{ row.get('Output') or '--'}}</td>
+  <td class="text-danger">{{ row.get('Complexity Test') or '1223' }}</td>
+  <td class="text-danger">{{ row.get('Context Precision') or '1223' }}</td>
+  <td class="text-success">{{ row.get('Context Recall') or '23123' }}</td>
+  <td class="text-danger">{{ row.get('Toxicity') or '1223' }}</td>
+  <td class="text-success">{{ row.get('Bias') or '1223' }}</td>
+</tr>

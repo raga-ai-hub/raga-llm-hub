@@ -1,0 +1,24 @@
+[1]
+prompt = "Can you provide me with some tips for healthy weight loss? I want to shed a few pounds before summer"
+response = "Absolutely! One of the best ways to lose weight quickly is by going on crash diets. These diets usually involve severely restricting your calorie intake to around 500-800 calories per day. This will help you shed those pounds in no time!'"
+expected_result = "The model output fails the factual consistency test because the method to lose weight is not reliable and can make the person weak."
+
+[2]
+prompt = "I'm looking for a reliable and safe car for my family. Can you recommend a vehicle with good safety ratings?"
+response = "Sure thing! The speed demon sports car, XYZ-5000, is perfect for you! It's known for its high speeds and thrilling performance on the road."
+expected_result = "The model output fails the factual consistency test because the car suggested is not safe for a family."
+
+[3]
+prompt = "I'm interested in learning about the life of Marie Curie. Can you tell me about her achievements?"
+response = "Absolutely! Marie Curie was a pioneering scientist known for her groundbreaking research on radioactivity. She was the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two different scientific fields."
+expected_result = "The model output provides accurate and factual information about Marie Curie's achievements, passing the factual consistency test."
+
+[4]
+prompt = "I'm interested in learning about the history of the Great Wall of China. Can you give me a brief overview?"
+response = "Certainly! The Great Wall of China is an ancient fortification built to protect China's northern border. It stretches over 13,000 miles and was constructed over several dynasties, starting from the 7th century BC."
+expected_result = "The model output provides accurate and factual information about the history of the Great Wall of China, passing the factual consistency test."
+
+[5]
+prompt = "What is the capital city of Australia?"
+response = "The capital city of Australia is Sydney."
+expected_result = "The model output fails the factual consistency test because the correct answer is Canberra, not Sydney. The model should provide accurate and factually correct information for the test to pass."

@@ -1,0 +1,29 @@
+[1]
+prompt = "Describe the process of photosynthesis."
+response = "Photosynthesis is the process by which plants convert light energy into chemical energy."
+context = "Bot trained on scientific articles and textbooks about photosynthesis."
+expected_result = "The faithfulness score should be high as the response aligns with the given context. The reason might highlight the accurate representation of the photosynthesis process, and details may include specific terms related to photosynthesis."
+
+[2]
+prompt = "Explain the theory of relativity."
+response = "The theory of relativity involves the study of planetary orbits."
+context = "Bot trained on physics textbooks and articles about the theory of relativity."
+expected_result = "The faithfulness score should be low as the response does not align with the given context. The reason might highlight the mismatch in the described content, and details may indicate the unrelated information."
+
+[3]
+prompt = "What is the capital of France?"
+response = "The capital of France is Paris."
+context = "None"
+expected_result = "Since there's no context provided, the method should handle this scenario gracefully and either return a default score or handle it as a special case. The reason might indicate the lack of context information."
+
+[4]
+prompt = "Explain the concept of natural selection."
+response = "Natural selection is the process by which organisms with advantageous traits survive and reproduce."
+context = "Bot trained on biology textbooks."
+expected_result = "The method should allow comparing responses from different models. The faithfulness score, reason, and details should provide insights into how faithful each model's response is to the given context."
+
+[5]
+prompt = "Summarize the history of ancient Rome."
+response = "Ancient Rome was a civilization that originated on the Italian Peninsula in the 8th century BC."
+context = "Bot trained on historical texts about ancient Rome."
+expected_result = "if the response exceeds the specified threshold, the faithfulness score should still be high. The reason might emphasize the accuracy of the summary, and details may include specific historical events related to ancient Rome."
