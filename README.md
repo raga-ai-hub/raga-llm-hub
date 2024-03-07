@@ -56,17 +56,16 @@ python -m pip install raga-llm-hub
 ### Initialization
 
 ```py
-from raga_llm_hub import RagaLLMEval, get_data
+from raga_llm_hub import RagaLLMEval
 
 # Initialize the evaluator with your API key
 evaluator = RagaLLMEval(api_key="your_api_key")
 ```
 
-### Discover and Run Tests
+### Run Tests
 
 ```py
-# List all available tests
-evaluator.list_available_tests()
+
 
 # Add and run a custom test
 evaluator.add_test(
