@@ -12,12 +12,13 @@ from ..helpers import (
 )
 
 
-def index_page_creator(context: dict):
+def index_page_creator(fileName: str):
     index_page = Blueprint("index_page", __name__, template_folder="templates")
 
     @index_page.route("/")
     def page():
-        results = context.get("results")
+        f = open(fileName)
+        results = json.load(f)
 
         # region pagination related code
         page = request.args.get("page", 0, int)

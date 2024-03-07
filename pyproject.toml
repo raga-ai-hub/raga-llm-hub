@@ -1,6 +1,6 @@
 [project]
 name = "raga-llm-hub"
-version = "1.0.0.10"
+version = "1.0.0.11"
 authors = [{ name = "Raga AI", email = "rehan.asif@raga.ai" }]
 description = "Package for LLM Evaluation"
 readme = "README.md"

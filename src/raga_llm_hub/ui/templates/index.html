@@ -60,10 +60,8 @@
         <div id="table-scroll" class="table-scroll">
           <div class="table-wrap">
             <table class="p-table">
-              <thead>
-              </thead>
-              <tbody>
-              </tbody>
+              <thead></thead>
+              <tbody></tbody>
             </table>
           </div>
         </div>
@@ -73,5 +71,19 @@
 </div>
 <script>
   window.jsonData=JSON.parse({{target_results|tojson}})
+</script>
+<script>
+  window.gtag("event", "page_launch");
+
+  const uniqueTestNames = new Set(
+    window.jsonData.flatMap((e) => e.dynamic.map((t) => t.test_name))
+  );
+  const testNames = Array.from(uniqueTestNames);
+
+  testNames.forEach((testName) => {
+    window.gtag("event", "test_loaded", {
+      test_name: testName,
+    });
+  });
 </script>
 {% endblock %}

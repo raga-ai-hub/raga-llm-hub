@@ -1,3 +1,4 @@
+import json
 from flask import Blueprint, abort, render_template, request
 from jinja2 import TemplateNotFound
 from datetime import datetime
@@ -5,12 +6,13 @@ from datetime import datetime
 from ..helpers import group_by_data_point_id
 
 
-def trace_page_creator(context: dict):
+def trace_page_creator(fileName: str):
     trace_page = Blueprint("trace_page", __name__, template_folder="templates")
 
     @trace_page.route("/trace/<data_point_id>")
     def page(data_point_id):
-        results = context.get("results")
+        f = open(fileName)
+        results = json.load(f)
         result = list(
             filter(
                 lambda x: x.get("data_point_id") == data_point_id,

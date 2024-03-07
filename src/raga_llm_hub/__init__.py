@@ -20,7 +20,7 @@ __all__ = [
     "launch_app",
 ]
 
-__version__ = "1.0.0.10"
+__version__ = "1.0.0.11"
 
 
 def check_latest_version(package_name):
