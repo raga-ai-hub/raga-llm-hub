@@ -74,22 +74,24 @@ def readability_test(prompt, response=None, threshold=5):
 
     reason = ""
 
+    # Adding score
+    score = prompt_readability_average + response_readability_average
+
     # Adding Prompt heading
     reason += "Prompt:\n"
+    reason += f"Score: {prompt_readability_average}\n"
     reason += "\n".join(f"{key}: {value}" for key, value in prompt_submetrics.items())
     reason += "\n"
 
     # Adding Response heading
     reason += "\nResponse:\n"
+    reason += f"Score: {response_readability_average}\n"
     reason += "\n".join(f"{key}: {value}" for key, value in response_submetrics.items())
 
     result = {
         "prompt": prompt,
         "response": response,
-        "score": {
-            "prompt_readability_score": prompt_readability_average,
-            "response_readability_score": response_readability_average,
-        },
+        "score": score,
         "is_passed": is_readable,
         "prompt_submetrics": prompt_submetrics,
         "response_submetrics": response_submetrics,

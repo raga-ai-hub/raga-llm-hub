@@ -31,14 +31,19 @@ def grade_score_test(prompt, response=None, threshold=5):
         response_grade_score = None
         is_passed = True if prompt_grade_score < threshold else False
 
+    # Adding score
+    score = prompt_grade_score + response_grade_score
+
+    # Adding reason
+    reason = f"Grade score for Prompt: {prompt_grade_score}\n"
+    reason += f"Grade score for Response: {response_grade_score}\n"
+
     result = {
         "prompt": prompt,
         "response": response,
-        "score": {
-            "prompt_grade_score": prompt_grade_score,
-            "response_grade_score": response_grade_score,
-        },
+        "score": score,
         "is_passed": is_passed,
         "threshold": threshold,
+        "reason": reason,
     }
     return result
