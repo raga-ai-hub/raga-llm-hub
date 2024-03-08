@@ -70,7 +70,7 @@ class ToxicityTest:
         Run the toxicity evaluation process and generate the result including input question, response, toxicity verdict, score, threshold, and evaluation details.
         """
         toxicity_verdict = self.evaluate_toxicity()
-        score = toxicity_verdict.get("score", 0.0)
+        score = float(toxicity_verdict.get("score", 0.0))
         reason = toxicity_verdict.get("reason", "No reason provided.")
 
         result = {
