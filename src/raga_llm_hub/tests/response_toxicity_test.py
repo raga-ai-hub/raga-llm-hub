@@ -1,4 +1,5 @@
 import json
+import time
 
 from .prompt_template import ResponseToxicityTemplate
 
@@ -68,11 +69,34 @@ class ResponseToxicityTest:
 
         return toxicity_verdict
 
+    def evaluate_with_retry(self, max_retries=3, initial_delay=1.0, backoff_factor=2.0):
+        """
+        Evaluate toxicity with retries.
+
+        :param max_retries: The maximum number of retries (default is 3).
+        :param initial_delay: The initial delay in seconds (default is 1.0).
+        :param backoff_factor: The backoff factor for exponential backoff (default is 2.0).
+        :return: The toxicity verdict.
+        """
+        attempts = 0
+        while attempts < max_retries:
+            try:
+                toxicity_verdict = self.evaluate_toxicity()
+                return toxicity_verdict  # Return on success
+            except Exception as e:
+                attempts += 1
+                if "JSONDecodeError" in str(e) and attempts < max_retries:
+                    time.sleep(
+                        initial_delay * (backoff_factor ** (attempts - 1))
+                    )  # Exponential backoff
+                else:
+                    raise e
+
     def run(self):
         """
         Run the toxicity evaluation process and generate the result including input question, response, toxicity verdict, score, threshold, and evaluation details.
         """
-        toxicity_verdict = self.evaluate_toxicity()
+        toxicity_verdict = self.evaluate_with_retry()
         score = toxicity_verdict.get("score", 0.0)
         reason = toxicity_verdict.get("reason", "No reason provided.")
 
