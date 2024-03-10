@@ -59,7 +59,7 @@ python -m pip install raga-llm-hub
 from raga_llm_hub import RagaLLMEval
 
 # Initialize the evaluator with your API key
-evaluator = RagaLLMEval(api_key="your_api_key")
+evaluator = RagaLLMEval("OPENAI_API_KEY"="your_api_key")
 ```
 
 ### Run Tests
