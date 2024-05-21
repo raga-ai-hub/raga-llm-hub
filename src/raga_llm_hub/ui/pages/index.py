@@ -1,22 +1,32 @@
 import json
 import math
+from threading import Thread
 
 from flask import Blueprint, abort, render_template, request
 from jinja2 import TemplateNotFound
+from pyngrok import ngrok
+from pyngrok.ngrok import PyngrokConfig
 
 from ..helpers import (
     get_test_for_test_run_id,
     get_test_name_for_test_run_id,
     group_by_data_point_id,
-    pick_matching_keys_from_dict,
+    kill_ngrok,
+    IN_COLAB,
 )
 
 
-def index_page_creator(fileName: str):
+def index_page_creator(
+    fileName: str, session_id: str, pyngrok_config: PyngrokConfig
+) -> Blueprint:
     index_page = Blueprint("index_page", __name__, template_folder="templates")
 
     @index_page.route("/")
     def page():
+        if IN_COLAB:
+            if request.args.get("id") != session_id:
+                abort(404)
+
         f = open(fileName)
         results = json.load(f)
 
@@ -29,6 +39,11 @@ def index_page_creator(fileName: str):
         # endregion
 
         groups = group_by_test_run_id(target_results)
+        if IN_COLAB:
+            # kill tunnel
+            thread = Thread(target=kill_ngrok, args=[pyngrok_config])
+            thread.start()
+
         try:
             return render_template(
                 "index.html",

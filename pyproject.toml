@@ -1,6 +1,6 @@
 [project]
 name = "raga-llm-hub"
-version = "1.0.0.11"
+version = "1.0.0.11.beta5"
 authors = [{ name = "Raga AI", email = "rehan.asif@raga.ai" }]
 description = "Package for LLM Evaluation"
 readme = "README.md"
@@ -46,8 +46,9 @@ dependencies = [
     "structlog==24.1.0",
     "json-repair==0.9.0",
     "fuzzysearch==0.7.3",
-    "waitress==3.0.0",
-    "sqlvalidator==0.0.20"
+    "waitress~=3.0.0",
+    "sqlvalidator==0.0.20",
+    "pyngrok==7.1.6"
 ]
 
 [project.optional-dependencies]
