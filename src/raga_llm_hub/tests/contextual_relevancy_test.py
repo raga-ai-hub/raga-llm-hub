@@ -54,7 +54,7 @@ class ContextualRelevancyTest:
         return self.client.chat.completions.create(
             model=self.model_name,
             temperature=self.temperature,
-            messages=[{"role": "system", "content": prompt}],
+            messages=[{"role": "user", "content": prompt}],
         )
 
     def trim_to_json(self, response):
@@ -69,7 +69,10 @@ class ContextualRelevancyTest:
         """
         message_content = response.choices[0].message.content
         data = json.dumps(message_content)
-        return json.loads(data)
+        print(data)
+        data = json.loads(data)
+        print(data)
+        return data
 
     def generate_verdicts(self):
         """
