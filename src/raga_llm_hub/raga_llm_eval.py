@@ -4,6 +4,7 @@ Main Function for RagaLLMEval
 
 import os
 from pathlib import Path
+import traceback
 
 from .api_client_manager import APIClientManager
 from .db_manager import DBManager
@@ -114,7 +115,7 @@ class RagaLLMEval(DBManager, APIClientManager, TestManager, ResultManager):
                 self._tests_to_execute, eval_id=self.eval_name
             )
         except Exception as e:
-            print(e.format_exc())
+            print(traceback.format_exc())
             print("🚫 Error while running the tests. Resetting...")
             self._clear_added_tests()
 
