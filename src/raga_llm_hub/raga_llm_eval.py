@@ -114,7 +114,7 @@ class RagaLLMEval(DBManager, APIClientManager, TestManager, ResultManager):
                 self._tests_to_execute, eval_id=self.eval_name
             )
         except Exception as e:
-            print(e)
+            print(e.format_exc())
             print("🚫 Error while running the tests. Resetting...")
             self._clear_added_tests()
 
