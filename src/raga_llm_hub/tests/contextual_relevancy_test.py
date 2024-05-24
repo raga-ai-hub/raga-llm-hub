@@ -82,7 +82,7 @@ class ContextualRelevancyTest:
             self.question, self.retrieval_context
         )
         verdict_response = self.model(verdict_prompt)
-        verdicts = json.loads(self.trim_to_json(verdict_response))["verdicts"]
+        verdicts = self.trim_to_json(verdict_response)["verdicts"]
         return verdicts
 
     def generate_score(self, verdicts_list):
