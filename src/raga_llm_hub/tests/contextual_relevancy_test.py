@@ -69,10 +69,9 @@ class ContextualRelevancyTest:
         """
         message_content = response.choices[0].message.content
         data = json.dumps(message_content)
-        print(data)
         data = json.loads(data)
-        print(data)
-        return data
+        data = data.lstrip("```json").rstrip("```")
+        return json.loads(data)
 
     def generate_verdicts(self):
         """
