@@ -41,7 +41,7 @@ dependencies = [
     "rapidfuzz==3.6.1",
     "langchain==0.1.9",
     "openai==1.11.1",
-    "transformers==4.38.1",
+    "transformers>=4.38.1",
     "Faker==23.2.1",
     "structlog==24.1.0",
     "json-repair==0.9.0",
