@@ -23,7 +23,7 @@
 </div>
 
 
-Welcome to Raga LLM Hub, a comprehensive evaluation toolkit for Language and Learning Models (LLMs). With over 100 meticulously designed metrics, it is the most comprehensive platform that allows developers and organizations to evaluate and compare LLMs effectively and establish essential guardrails for LLMs and Retrieval Augmented Generation(RAG)  applications. These tests assess various aspects including Relevance & Understanding, Content Quality, Hallucination, Safety & Bias, Context Relevance, Guardrails, and Vulnerability scanning, along with a suite of Metric-Based Tests for quantitative analysis.
+Welcome to RagaAI LLM Hub, a comprehensive evaluation toolkit for Language and Learning Models (LLMs). With over 100 meticulously designed metrics, it is the most comprehensive platform that allows developers and organizations to evaluate and compare LLMs effectively and establish essential guardrails for LLMs and Retrieval Augmented Generation(RAG)  applications. These tests assess various aspects including Relevance & Understanding, Content Quality, Hallucination, Safety & Bias, Context Relevance, Guardrails, and Vulnerability scanning, along with a suite of Metric-Based Tests for quantitative analysis.
 
 The RagaAI LLM Hub is uniquely designed to help teams identify issues and fix them throughout the LLM lifecycle, by identifying issues across the entire RAG pipeline. This is pivotal for understanding the root cause of failures within an LLM application and addressing them at their source, revolutionizing the approach to ensuring reliability and trustworthiness.
 
