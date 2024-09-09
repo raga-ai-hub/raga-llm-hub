@@ -1,7 +1,4 @@
-<h1 align="center">⚠️ THIS REPOSITORY HAS MOVED ⚠️</h1>
-
-The latest version of this repository is now at https://github.com/raga-ai-hub/ragaai-catalyst
-
+<h1 align="center"></h1>
 
 
 
