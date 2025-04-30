@@ -1,138 +1,244 @@
-<h1 align="center"></h1>
+🤝 Contributing + 🎉 Usage
+
+def load_huggingface_model(model_name):
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModel.from_pretrained(model_name)
+    return tokenizer, model
+
+💡 Example + 🔍 Functions
+import os
+from dotenv import load_dotenv
+import chromadb
+from openai import OpenAI
+from chromadb.utils import embedding_functions
+
+# Load environment variables from .env file
+load_dotenv()
+
+openai_key = os.getenv("OPENAI_API_KEY")
+
+openai_ef = embedding_functions.OpenAIEmbeddingFunction(
+    api_key=openai_key, model_name="text-embedding-3-small"
+)
+# Initialize the Chroma client with persistence
+chroma_client = chromadb.PersistentClient(path="chroma_persistent_storage")
+collection_name = "document_qa_collection"
+collection = chroma_client.get_or_create_collection(
+    name=collection_name, embedding_function=openai_ef
+)
+
+
+client = OpenAI(api_key=openai_key)
+
+# resp = client.chat.completions.create(
+#     model="gpt-3.5-turbo",
+#     messages=[
+#         {"role": "system", "content": "You are a helpful assistant."},
+#         {
+#             "role": "user",
+#             "content": "What is human life expectancy in the United States?",
+#         },
+#     ],
+# )
+
+
+# Function to load documents from a directory
+def load_documents_from_directory(directory_path):
+    print("==== Loading documents from directory ====")
+    documents = []
+    for filename in os.listdir(directory_path):
+        if filename.endswith(".txt"):
+            with open(
+                os.path.join(directory_path, filename), "r", encoding="utf-8"
+            ) as file:
+                documents.append({"id": filename, "text": file.read()})
+    return documents
+
+
+# Function to split text into chunks
+def split_text(text, chunk_size=1000, chunk_overlap=20):
+    chunks = []
+    start = 0
+    while start < len(text):
+        end = start + chunk_size
+        chunks.append(text[start:end])
+        start = end - chunk_overlap
+    return chunks
+
+
+# Load documents from the directory
+directory_path = "./news_articles"
+documents = load_documents_from_directory(directory_path)
+
+print(f"Loaded {len(documents)} documents")
+# Split documents into chunks
+chunked_documents = []
+for doc in documents:
+    chunks = split_text(doc["text"])
+    print("==== Splitting docs into chunks ====")
+    for i, chunk in enumerate(chunks):
+        chunked_documents.append({"id": f"{doc['id']}_chunk{i+1}", "text": chunk})
+
+# print(f"Split documents into {len(chunked_documents)} chunks")
+
+
+# Function to generate embeddings using OpenAI API
+def get_openai_embedding(text):
+    response = client.embeddings.create(input=text, model="text-embedding-3-small")
+    embedding = response.data[0].embedding
+    print("==== Generating embeddings... ====")
+    return embedding
+
+
+# Generate embeddings for the document chunks
+for doc in chunked_documents:
+    print("==== Generating embeddings... ====")
+    doc["embedding"] = get_openai_embedding(doc["text"])
+
+# print(doc["embedding"])
+
+# Upsert documents with embeddings into Chroma
+for doc in chunked_documents:
+    print("==== Inserting chunks into db;;; ====")
+    collection.upsert(
+        ids=[doc["id"]], documents=[doc["text"]], embeddings=[doc["embedding"]]
+    )
+
+
+# Function to query documents
+def query_documents(question, n_results=2):
+    # query_embedding = get_openai_embedding(question)
+    results = collection.query(query_texts=question, n_results=n_results)
+
+    # Extract the relevant chunks
+    relevant_chunks = [doc for sublist in results["documents"] for doc in sublist]
+    print("==== Returning relevant chunks ====")
+    return relevant_chunks
+    # for idx, document in enumerate(results["documents"][0]):
+    #     doc_id = results["ids"][0][idx]
+    #     distance = results["distances"][0][idx]
+    #     print(f"Found document chunk: {document} (ID: {doc_id}, Distance: {distance})")
+
+
+# Function to generate a response from OpenAI
+def generate_response(question, relevant_chunks):
+    context = "\n\n".join(relevant_chunks)
+    prompt = (
+        "You are an assistant for question-answering tasks. Use the following pieces of "
+        "retrieved context to answer the question. If you don't know the answer, say that you "
+        "don't know. Use three sentences maximum and keep the answer concise."
+        "\n\nContext:\n" + context + "\n\nQuestion:\n" + question
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "system",
+                "content": prompt,
+            },
+            {
+                "role": "user",
+                "content": question,
+            },
+        ],
+    )
+
+    answer = response.choices[0].message
+    return answer
+
+
+# Example query
+# query_documents("tell me about AI replacing TV writers strike.")
+# Example query and response generation
+question = "tell me about databricks"
+relevant_chunks = query_documents(question)
+answer = generate_response(question, relevant_chunks)
+
+print(answer)
 
 
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/raga-ai-hub/raga-llm-hub/main/docs/assets/logo-lg_black.png" alt="RagaAI - Logo" width="100%">
-</p>
 
-<h1 align="center">
-    Raga LLM Hub
-</h1>
+# 🌟 Document QA System 🌟
 
-<h3 align="center">
-    <a href="https://raga.ai">Raga AI</a> |
-    <a href="https://docs.raga.ai/raga-llm-hub">Documentation</a> |
-    <a href="https://docs.raga.ai/raga-llm-hub/quickstart">Getting Started</a>
+Welcome to the **Document Question-Answering (QA) System**! This innovative project harnesses the power of OpenAI's API and ChromaDB to create a seamless experience for retrieving information from text documents. Whether you're a researcher, student, or just curious, this system is designed to help you find answers quickly and efficiently!
 
-</h3>
+## 🚀 Features
+- Effortless Document Loading: Simply drop your text files into the designated folder, and let the system do the rest!
+- smart Chunking: Documents are intelligently split into manageable chunks, ensuring that no detail is overlooked.
+- Powerful Embeddings: Leverage OpenAI's cutting-edge technology to generate meaningful embeddings for each document chunk.
+- Fast Retrieval: Store and retrieve document chunks with lightning speed using ChromaDB.
+- Interactive Querying: Ask questions and receive concise, relevant answers based on the content of your documents.
 
+## 🛠️ Requirements
+To get started, you'll need:
+- Python 3.7 or higher
+- Essential libraries:
+  - `os`
+  - `dotenv`
+  - `chromadb`
+  - `openai`
+  - `transformers` (for Hugging Face models)
+  - `datasets` (for Hugging Face datasets)
 
-<div align="center">
+## 📥 Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/document-qa-system.git
+   cd document-qa-system
+   ```
 
+2. **Install Required Packages**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-[![PyPI - Version](https://img.shields.io/pypi/v/raga-llm-hub?label=PyPI%20Package)](https://badge.fury.io/py/raga-llm-hub) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PQGqDGdcSUxhSvpSQYX8ZdHf5r90WSYf?usp=sharing)
-</a> [![Python Compatibility](https://img.shields.io/pypi/pyversions/raga-llm-hub)](https://pypi.org/project/raga-llm-hub/) []()
+3. **Set Up Environment Variables**:
+   - Create a `.env` file in the root directory and add your OpenAI API key:
+     ```
+     OPENAI_API_KEY=your_openai_api_key
+     ```
 
-</div>
+## 🎉 Usage
+1. **Load Your Documents**: Place your text documents in the `./news_articles` directory.
+2. **Run the Application**:
+   ```bash
+   python app.py
+   ```
 
+3. **Ask Your Questions**: Modify the `question` variable in `app.py` to ask anything you want:
+   ```python
+   question = "Your question here"
+   ```
 
-Welcome to RagaAI LLM Hub, a comprehensive evaluation toolkit for Language and Learning Models (LLMs). With over 100 meticulously designed metrics, it is the most comprehensive platform that allows developers and organizations to evaluate and compare LLMs effectively and establish essential guardrails for LLMs and Retrieval Augmented Generation(RAG)  applications. These tests assess various aspects including Relevance & Understanding, Content Quality, Hallucination, Safety & Bias, Context Relevance, Guardrails, and Vulnerability scanning, along with a suite of Metric-Based Tests for quantitative analysis.
+4. **Get Answers**: Sit back and watch as the system provides you with insightful responses!
 
-The RagaAI LLM Hub is uniquely designed to help teams identify issues and fix them throughout the LLM lifecycle, by identifying issues across the entire RAG pipeline. This is pivotal for understanding the root cause of failures within an LLM application and addressing them at their source, revolutionizing the approach to ensuring reliability and trustworthiness.
+## 🔍 Functions
+- **`load_documents_from_directory(directory_path)`**: Effortlessly loads text documents from your specified directory.
+- **`split_text(text, chunk_size=1000, chunk_overlap=20)`**: Splits text into digestible chunks with a smart overlap.
+- **`get_openai_embedding(text)`**: Generates powerful embeddings for your text using OpenAI's API.
+- **`query_documents(question, n_results=2)`**: Retrieves relevant document chunks based on your query.
+- **`generate_response(question, relevant_chunks)`**: Crafts a concise answer using the retrieved chunks.
 
-## Installation
-
-### Via pip
-
-```bash
-# Create and activate a new Python environment
-python -m venv venv
-source venv/bin/activate
-
-# Install Raga LLM Hub
-pip install raga-llm-hub
+## 💡 Example
+To see the magic in action, set the `question` variable in `app.py`:
+```python
+question = "Tell me about Databricks"
 ```
+Run the application, and prepare to be amazed by the response!
+
+## 🤝 Contributing
+We welcome contributions from everyone! If you have ideas for improvements or new features, please open an issue or submit a pull request. Let's make this project even better together!
+
+## 📜 License
+This project is licensed under the MIT License. Check out the MIT file for more details.
+
+## 🙏 Acknowledgments
+- A huge thank you to **OpenAI** for providing the API that powers our embeddings and chat capabilities.
+- Special thanks to **ChromaDB** for enabling efficient document storage and retrieval.
 
 
-### Via conda
-```py
-# Create and activate a new Conda environment
-conda create --name myenv python=3.11
-conda activate myenv
+Feel free to customize this README further to match your project's personality and style! Happy coding! 🎉
 
-# Install Raga LLM Hub
-python -m pip install raga-llm-hub
-
-```
-
-## Quick Tour
-### Initialization
-
-```py
-from raga_llm_hub import RagaLLMEval
-
-# Initialize the evaluator with your API key
-evaluator = RagaLLMEval("OPENAI_API_KEY"="your_api_key")
-```
-
-### Run Tests
-
-```py
-
-
-# Add and run a custom test
-evaluator.add_test(
-    test_name="relevancy_test",
-    data={
-        "prompt": "How are you?",
-        "context": "Responding as a student to a teacher.",
-        "response": "I am well, thank you.",
-    },
-    arguments={"model": "gpt-4", "threshold": 0.5},
-).run()
-
-# Review the results
-evaluator.print_results()
-
-```
-
-## Managing Results
-- **Instant Overview**: Quickly view your test results directly.
-- **Save for Detailed Analysis**: Export your results for comprehensive examination or sharing with your team.
-- **In-depth Access**: Utilize the app for advanced result processing and visualization.
-- **Historical Comparisons**: Leverage past evaluations for ongoing performance tracking.
-
-```py
-# Printing Results: View your test results immediately for a quick analysis
-evaluator.print_results()
-
-# Saving Results: Export your results to a JSON file for in-depth analysis 
-evaluator.save_results("my_test_results.json")
-
-# Accessing Results: Utilize the fetched detailed results and metrics for further processing or visualization
-detailed_results = evaluator.get_results()
-
-# Re-using Previous Results: If you have an evaluation ID from a previous run, you can load and compare those results
-previous_eval_id = "your_previous_eval_id_here"
-evaluator.load_eval(previous_eval_id)
-
-# After loading, you can print, save, or further analyze these results
-evaluator.print_results()
-```
-
-## Examples
-- **Evaluation Tests**: Evaluation Tests assesse a Large Language Model's (LLM's) performance in generating responses that are accurate, relevant, and linguistically coherent to a wide array of prompts. This evaluation is pivotal in determining the model's ability to understand and respond appropriately to diverse user inputs, ranging from simple queries to complex, context-rich requests. 
-
-    [![Evaluation Tests](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1cY5eN5w7bK1CH8L8MYEAfrfzaVZ7LNS5?usp=sharing)
-
-- **Guardrail Tests**: Guardrails ensure that the models operate within predefined ethical, legal, and safety boundaries. These mechanisms are implemented to prevent the generation of biased, offensive, or harmful content, making sure that the outputs align with societal norms and values. 
-
-     [![Guardrails](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1TAX2PeicBBWHtdiZZelpXN5YcOB7WnEk?usp=sharing)
-
-
-## Enterprise
-Enterprise Version
-Introducing raga-llm-platform,(enterprise version of raga-llm-hub)  for Large Language Model (LLM) evaluation and guardrails, designed to empower organizations to harness the full potential of LLMs securely and efficiently. Here’s what sets raga-llm-platform apart:
-1. **Production Scale Analysis**
-2. **State-of-the-Art Evaluation Methods and Metrics**
-3. **Issue Diagnosis and Remediation**
-4. **On-Prem/Private Cloud Deployment with Real-Time Streaming Support**
-5. **Real-Time Evaluation and Guardrails**
-
-To learn more and see how raga-llm-platform can benefit your organization, [book a call with our team today](https://calendly.com/vijay-srinivas/ragaai-product-offering?month=2024-03). Discover the value of enterprise-grade LLM management tailored to your needs.
-
-## Learn More
-For those who wish to dive deeper, we encourage exploring [our extensive documentation](https://docs.raga.ai)
-
-For more details and the latest news from RagaAI, visit [our official website](https://raga.ai).
+    
